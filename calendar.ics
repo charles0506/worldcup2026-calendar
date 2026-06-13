@@ -1,0 +1,1466 @@
+BEGIN:VCALENDAR
+PRODID:-//Codex//World Cup 2026 Chinese Schedule//ZH-TW
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:2026 世界盃賽程（中文）
+X-WR-TIMEZONE:Asia/Taipei
+X-WR-CALDESC:中文國名與短標題版本，方便在 Google 行事曆
+ 直接看對戰。
+BEGIN:VEVENT
+UID:fwc26-zh-001@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260611T190000Z
+DTEND:20260611T210000Z
+SUMMARY:🇲🇽 墨西哥 比 🇿🇦 南非
+DESCRIPTION:對戰：墨西哥 vs 南非\n階段：小組A\n台灣時間
+ ：2026/06/12 03:00 - 05:00\n場地：Estadio Azteca (Mexico City Stadi
+ um)\, Mexico City\, Mexico\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:Estadio Azteca (Mexico City Stadium)\, Mexico City\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-002@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260612T020000Z
+DTEND:20260612T040000Z
+SUMMARY:🇰🇷 南韓 比 🇨🇿 捷克
+DESCRIPTION:對戰：南韓 vs 捷克\n階段：小組A\n台灣時間：2
+ 026/06/12 10:00 - 12:00\n場地：Estadio Akron (Guadalajara Stadium)\,
+  Zapopan\, Mexico\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:Estadio Akron (Guadalajara Stadium)\, Zapopan\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-003@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260612T190000Z
+DTEND:20260612T210000Z
+SUMMARY:🇨🇦 加拿大 比 🇧🇦 波士尼亞與赫塞哥維納
+DESCRIPTION:對戰：加拿大 vs 波士尼亞與赫塞哥維納\n階段
+ ：小組B\n台灣時間：2026/06/13 03:00 - 05:00\n場地：BMO Field
+ \, Toronto\, Canada\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:BMO Field\, Toronto\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-004@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260613T010000Z
+DTEND:20260613T030000Z
+SUMMARY:🇺🇸 美國 比 🇵🇾 巴拉圭
+DESCRIPTION:對戰：美國 vs 巴拉圭\n階段：小組D\n台灣時間
+ ：2026/06/13 09:00 - 11:00\n場地：SoFi Stadium (Inglewood)\, Los An
+ geles\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-005@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260613T190000Z
+DTEND:20260613T210000Z
+SUMMARY:🇶🇦 卡達 比 🇨🇭 瑞士
+DESCRIPTION:對戰：卡達 vs 瑞士\n階段：小組B\n台灣時間：2
+ 026/06/14 03:00 - 05:00\n場地：Levi's Stadium (Santa Clara)\, Santa 
+ Clara\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:Levi's Stadium (Santa Clara)\, Santa Clara\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-006@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260613T220000Z
+DTEND:20260614T000000Z
+SUMMARY:🇧🇷 巴西 比 🇲🇦 摩洛哥
+DESCRIPTION:對戰：巴西 vs 摩洛哥\n階段：小組C\n台灣時間
+ ：2026/06/14 06:00 - 08:00\n場地：MetLife Stadium (East Rutherford)
+ \, New Jersey\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:MetLife Stadium (East Rutherford)\, New Jersey\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-007@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260614T010000Z
+DTEND:20260614T030000Z
+SUMMARY:🇭🇹 海地 比 🏴 蘇格蘭
+DESCRIPTION:對戰：海地 vs 蘇格蘭\n階段：小組C\n台灣時間
+ ：2026/06/14 09:00 - 11:00\n場地：Gillette Stadium (Foxborough)\, F
+ oxborough\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-008@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260614T040000Z
+DTEND:20260614T060000Z
+SUMMARY:🇦🇺 澳洲 比 🇹🇷 土耳其
+DESCRIPTION:對戰：澳洲 vs 土耳其\n階段：小組D\n台灣時間
+ ：2026/06/14 12:00 - 14:00\n場地：BC Place\, Vancouver\, Canada\n
+ 資料來源：公開 Google 行事曆，已修正附加賽占位與中
+ 文顯示。
+LOCATION:BC Place\, Vancouver\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-009@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260614T170000Z
+DTEND:20260614T190000Z
+SUMMARY:🇩🇪 德國 比 🇨🇼 庫拉索
+DESCRIPTION:對戰：德國 vs 庫拉索\n階段：小組E\n台灣時間
+ ：2026/06/15 01:00 - 03:00\n場地：NRG Stadium\, Houston\, USA\n資
+ 料來源：公開 Google 行事曆，已修正附加賽占位與中文
+ 顯示。
+LOCATION:NRG Stadium\, Houston\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-010@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260614T200000Z
+DTEND:20260614T220000Z
+SUMMARY:🇳🇱 荷蘭 比 🇯🇵 日本
+DESCRIPTION:對戰：荷蘭 vs 日本\n階段：小組F\n台灣時間：2
+ 026/06/15 04:00 - 06:00\n場地：AT&T Stadium (Arlington)\, Arlington\
+ , USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-011@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260614T230000Z
+DTEND:20260615T010000Z
+SUMMARY:🇨🇮 象牙海岸 比 🇪🇨 厄瓜多
+DESCRIPTION:對戰：象牙海岸 vs 厄瓜多\n階段：小組E\n台灣
+ 時間：2026/06/15 07:00 - 09:00\n場地：Lincoln Financial Field\, P
+ hiladelphia\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:Lincoln Financial Field\, Philadelphia\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-012@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260615T020000Z
+DTEND:20260615T040000Z
+SUMMARY:🇸🇪 瑞典 比 🇹🇳 突尼西亞
+DESCRIPTION:對戰：瑞典 vs 突尼西亞\n階段：小組F\n台灣時
+ 間：2026/06/15 10:00 - 12:00\n場地：Estadio BBVA (Monterrey Stadiu
+ m)\, Guadalupe\, Mexico\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:Estadio BBVA (Monterrey Stadium)\, Guadalupe\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-013@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260615T160000Z
+DTEND:20260615T180000Z
+SUMMARY:🇪🇸 西班牙 比 🇨🇻 維德角
+DESCRIPTION:對戰：西班牙 vs 維德角\n階段：小組H\n台灣時
+ 間：2026/06/16 00:00 - 02:00\n場地：Mercedes-Benz Stadium\, Atlant
+ a\, USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-014@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260615T190000Z
+DTEND:20260615T210000Z
+SUMMARY:🇧🇪 比利時 比 🇪🇬 埃及
+DESCRIPTION:對戰：比利時 vs 埃及\n階段：小組G\n台灣時間
+ ：2026/06/16 03:00 - 05:00\n場地：Lumen Field\, Seattle\, USA\n資
+ 料來源：公開 Google 行事曆，已修正附加賽占位與中文
+ 顯示。
+LOCATION:Lumen Field\, Seattle\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-015@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260615T220000Z
+DTEND:20260616T000000Z
+SUMMARY:🇸🇦 沙烏地阿拉伯 比 🇺🇾 烏拉圭
+DESCRIPTION:對戰：沙烏地阿拉伯 vs 烏拉圭\n階段：小組H\n
+ 台灣時間：2026/06/16 06:00 - 08:00\n場地：Hard Rock Stadium (Mi
+ ami Gardens)\, Miami\, USA\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:Hard Rock Stadium (Miami Gardens)\, Miami\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-016@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260616T010000Z
+DTEND:20260616T030000Z
+SUMMARY:🇮🇷 伊朗 比 🇳🇿 紐西蘭
+DESCRIPTION:對戰：伊朗 vs 紐西蘭\n階段：小組G\n台灣時間
+ ：2026/06/16 09:00 - 11:00\n場地：SoFi Stadium (Inglewood)\, Los An
+ geles\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-017@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260616T190000Z
+DTEND:20260616T210000Z
+SUMMARY:🇫🇷 法國 比 🇸🇳 塞內加爾
+DESCRIPTION:對戰：法國 vs 塞內加爾\n階段：小組I\n台灣時
+ 間：2026/06/17 03:00 - 05:00\n場地：MetLife Stadium (East Rutherfo
+ rd)\, New Jersey\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:MetLife Stadium (East Rutherford)\, New Jersey\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-018@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260616T220000Z
+DTEND:20260617T000000Z
+SUMMARY:🇮🇶 伊拉克 比 🇳🇴 挪威
+DESCRIPTION:對戰：伊拉克 vs 挪威\n階段：小組I\n台灣時間
+ ：2026/06/17 06:00 - 08:00\n場地：Gillette Stadium (Foxborough)\, F
+ oxborough\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-019@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260617T010000Z
+DTEND:20260617T030000Z
+SUMMARY:🇦🇷 阿根廷 比 🇩🇿 阿爾及利亞
+DESCRIPTION:對戰：阿根廷 vs 阿爾及利亞\n階段：小組J\n台
+ 灣時間：2026/06/17 09:00 - 11:00\n場地：Arrowhead Stadium\, Kans
+ as City\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:Arrowhead Stadium\, Kansas City\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-020@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260617T040000Z
+DTEND:20260617T060000Z
+SUMMARY:🇦🇹 奧地利 比 🇯🇴 約旦
+DESCRIPTION:對戰：奧地利 vs 約旦\n階段：小組J\n台灣時間
+ ：2026/06/17 12:00 - 14:00\n場地：Levi's Stadium (Santa Clara)\, Sa
+ nta Clara\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Levi's Stadium (Santa Clara)\, Santa Clara\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-021@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260617T170000Z
+DTEND:20260617T190000Z
+SUMMARY:🇵🇹 葡萄牙 比 🇨🇩 剛果民主共和國
+DESCRIPTION:對戰：葡萄牙 vs 剛果民主共和國\n階段：小組K
+ \n台灣時間：2026/06/18 01:00 - 03:00\n場地：NRG Stadium\, Houst
+ on\, USA\n資料來源：公開 Google 行事曆，已修正附加賽
+ 占位與中文顯示。
+LOCATION:NRG Stadium\, Houston\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-022@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260617T200000Z
+DTEND:20260617T220000Z
+SUMMARY:🏴 英格蘭 比 🇭🇷 克羅埃西亞
+DESCRIPTION:對戰：英格蘭 vs 克羅埃西亞\n階段：小組L\n台
+ 灣時間：2026/06/18 04:00 - 06:00\n場地：AT&T Stadium (Arlington)
+ \, Arlington\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-023@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260617T230000Z
+DTEND:20260618T010000Z
+SUMMARY:🇬🇭 迦納 比 🇵🇦 巴拿馬
+DESCRIPTION:對戰：迦納 vs 巴拿馬\n階段：小組L\n台灣時間
+ ：2026/06/18 07:00 - 09:00\n場地：BMO Field\, Toronto\, Canada\n資
+ 料來源：公開 Google 行事曆，已修正附加賽占位與中文
+ 顯示。
+LOCATION:BMO Field\, Toronto\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-024@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260618T020000Z
+DTEND:20260618T040000Z
+SUMMARY:🇺🇿 烏茲別克 比 🇨🇴 哥倫比亞
+DESCRIPTION:對戰：烏茲別克 vs 哥倫比亞\n階段：小組K\n台
+ 灣時間：2026/06/18 10:00 - 12:00\n場地：Estadio Azteca (Mexico C
+ ity Stadium)\, Mexico City\, Mexico\n資料來源：公開 Google 行
+ 事曆，已修正附加賽占位與中文顯示。
+LOCATION:Estadio Azteca (Mexico City Stadium)\, Mexico City\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-025@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260618T160000Z
+DTEND:20260618T180000Z
+SUMMARY:🇨🇿 捷克 比 🇿🇦 南非
+DESCRIPTION:對戰：捷克 vs 南非\n階段：小組A\n台灣時間：2
+ 026/06/19 00:00 - 02:00\n場地：Mercedes-Benz Stadium\, Atlanta\, USA
+ \n資料來源：公開 Google 行事曆，已修正附加賽占位與
+ 中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-026@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260618T190000Z
+DTEND:20260618T210000Z
+SUMMARY:🇨🇭 瑞士 比 🇧🇦 波士尼亞與赫塞哥維納
+DESCRIPTION:對戰：瑞士 vs 波士尼亞與赫塞哥維納\n階段：
+ 小組B\n台灣時間：2026/06/19 03:00 - 05:00\n場地：SoFi Stadium
+  (Inglewood)\, Los Angeles\, USA\n資料來源：公開 Google 行事
+ 曆，已修正附加賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-027@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260618T220000Z
+DTEND:20260619T000000Z
+SUMMARY:🇨🇦 加拿大 比 🇶🇦 卡達
+DESCRIPTION:對戰：加拿大 vs 卡達\n階段：小組B\n台灣時間
+ ：2026/06/19 06:00 - 08:00\n場地：BC Place\, Vancouver\, Canada\n
+ 資料來源：公開 Google 行事曆，已修正附加賽占位與中
+ 文顯示。
+LOCATION:BC Place\, Vancouver\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-028@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260619T010000Z
+DTEND:20260619T030000Z
+SUMMARY:🇲🇽 墨西哥 比 🇰🇷 南韓
+DESCRIPTION:對戰：墨西哥 vs 南韓\n階段：小組A\n台灣時間
+ ：2026/06/19 09:00 - 11:00\n場地：Estadio Akron (Guadalajara Stadiu
+ m)\, Zapopan\, Mexico\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:Estadio Akron (Guadalajara Stadium)\, Zapopan\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-029@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260619T190000Z
+DTEND:20260619T210000Z
+SUMMARY:🇺🇸 美國 比 🇦🇺 澳洲
+DESCRIPTION:對戰：美國 vs 澳洲\n階段：小組D\n台灣時間：2
+ 026/06/20 03:00 - 05:00\n場地：Lumen Field\, Seattle\, USA\n資料
+ 來源：公開 Google 行事曆，已修正附加賽占位與中文顯
+ 示。
+LOCATION:Lumen Field\, Seattle\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-030@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260619T220000Z
+DTEND:20260620T000000Z
+SUMMARY:🏴 蘇格蘭 比 🇲🇦 摩洛哥
+DESCRIPTION:對戰：蘇格蘭 vs 摩洛哥\n階段：小組C\n台灣時
+ 間：2026/06/20 06:00 - 08:00\n場地：Gillette Stadium (Foxborough)\
+ , Foxborough\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-031@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260620T010000Z
+DTEND:20260620T030000Z
+SUMMARY:🇧🇷 巴西 比 🇭🇹 海地
+DESCRIPTION:對戰：巴西 vs 海地\n階段：小組C\n台灣時間：2
+ 026/06/20 09:00 - 11:00\n場地：Lincoln Financial Field\, Philadelphi
+ a\, USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:Lincoln Financial Field\, Philadelphia\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-032@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260620T040000Z
+DTEND:20260620T060000Z
+SUMMARY:🇹🇷 土耳其 比 🇵🇾 巴拉圭
+DESCRIPTION:對戰：土耳其 vs 巴拉圭\n階段：小組D\n台灣時
+ 間：2026/06/20 12:00 - 14:00\n場地：Levi's Stadium (Santa Clara)\,
+  Santa Clara\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:Levi's Stadium (Santa Clara)\, Santa Clara\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-033@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260620T170000Z
+DTEND:20260620T190000Z
+SUMMARY:🇳🇱 荷蘭 比 🇸🇪 瑞典
+DESCRIPTION:對戰：荷蘭 vs 瑞典\n階段：小組F\n台灣時間：2
+ 026/06/21 01:00 - 03:00\n場地：NRG Stadium\, Houston\, USA\n資料
+ 來源：公開 Google 行事曆，已修正附加賽占位與中文顯
+ 示。
+LOCATION:NRG Stadium\, Houston\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-034@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260620T200000Z
+DTEND:20260620T220000Z
+SUMMARY:🇩🇪 德國 比 🇨🇮 象牙海岸
+DESCRIPTION:對戰：德國 vs 象牙海岸\n階段：小組E\n台灣時
+ 間：2026/06/21 04:00 - 06:00\n場地：BMO Field\, Toronto\, Canada\n
+ 資料來源：公開 Google 行事曆，已修正附加賽占位與中
+ 文顯示。
+LOCATION:BMO Field\, Toronto\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-035@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260621T000000Z
+DTEND:20260621T020000Z
+SUMMARY:🇪🇨 厄瓜多 比 🇨🇼 庫拉索
+DESCRIPTION:對戰：厄瓜多 vs 庫拉索\n階段：小組E\n台灣時
+ 間：2026/06/21 08:00 - 10:00\n場地：Arrowhead Stadium\, Kansas Cit
+ y\, USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:Arrowhead Stadium\, Kansas City\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-036@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260621T040000Z
+DTEND:20260621T060000Z
+SUMMARY:🇹🇳 突尼西亞 比 🇯🇵 日本
+DESCRIPTION:對戰：突尼西亞 vs 日本\n階段：小組F\n台灣時
+ 間：2026/06/21 12:00 - 14:00\n場地：Estadio BBVA (Monterrey Stadiu
+ m)\, Guadalupe\, Mexico\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:Estadio BBVA (Monterrey Stadium)\, Guadalupe\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-037@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260621T160000Z
+DTEND:20260621T180000Z
+SUMMARY:🇪🇸 西班牙 比 🇸🇦 沙烏地阿拉伯
+DESCRIPTION:對戰：西班牙 vs 沙烏地阿拉伯\n階段：小組H\n
+ 台灣時間：2026/06/22 00:00 - 02:00\n場地：Mercedes-Benz Stadium
+ \, Atlanta\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-038@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260621T190000Z
+DTEND:20260621T210000Z
+SUMMARY:🇧🇪 比利時 比 🇮🇷 伊朗
+DESCRIPTION:對戰：比利時 vs 伊朗\n階段：小組G\n台灣時間
+ ：2026/06/22 03:00 - 05:00\n場地：SoFi Stadium (Inglewood)\, Los An
+ geles\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-039@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260621T220000Z
+DTEND:20260622T000000Z
+SUMMARY:🇺🇾 烏拉圭 比 🇨🇻 維德角
+DESCRIPTION:對戰：烏拉圭 vs 維德角\n階段：小組H\n台灣時
+ 間：2026/06/22 06:00 - 08:00\n場地：Hard Rock Stadium (Miami Garde
+ ns)\, Miami\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:Hard Rock Stadium (Miami Gardens)\, Miami\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-040@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260622T010000Z
+DTEND:20260622T030000Z
+SUMMARY:🇳🇿 紐西蘭 比 🇪🇬 埃及
+DESCRIPTION:對戰：紐西蘭 vs 埃及\n階段：小組G\n台灣時間
+ ：2026/06/22 09:00 - 11:00\n場地：BC Place\, Vancouver\, Canada\n
+ 資料來源：公開 Google 行事曆，已修正附加賽占位與中
+ 文顯示。
+LOCATION:BC Place\, Vancouver\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-041@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260622T170000Z
+DTEND:20260622T190000Z
+SUMMARY:🇦🇷 阿根廷 比 🇦🇹 奧地利
+DESCRIPTION:對戰：阿根廷 vs 奧地利\n階段：小組J\n台灣時
+ 間：2026/06/23 01:00 - 03:00\n場地：AT&T Stadium (Arlington)\, Arl
+ ington\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-042@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260622T210000Z
+DTEND:20260622T230000Z
+SUMMARY:🇫🇷 法國 比 🇮🇶 伊拉克
+DESCRIPTION:對戰：法國 vs 伊拉克\n階段：小組I\n台灣時間
+ ：2026/06/23 05:00 - 07:00\n場地：Lincoln Financial Field\, Philade
+ lphia\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:Lincoln Financial Field\, Philadelphia\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-043@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260623T000000Z
+DTEND:20260623T020000Z
+SUMMARY:🇳🇴 挪威 比 🇸🇳 塞內加爾
+DESCRIPTION:對戰：挪威 vs 塞內加爾\n階段：小組I\n台灣時
+ 間：2026/06/23 08:00 - 10:00\n場地：BMO Field\, Toronto\, Canada\n
+ 資料來源：公開 Google 行事曆，已修正附加賽占位與中
+ 文顯示。
+LOCATION:BMO Field\, Toronto\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-044@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260623T030000Z
+DTEND:20260623T050000Z
+SUMMARY:🇯🇴 約旦 比 🇩🇿 阿爾及利亞
+DESCRIPTION:對戰：約旦 vs 阿爾及利亞\n階段：小組J\n台灣
+ 時間：2026/06/23 11:00 - 13:00\n場地：Levi's Stadium (Santa Clara
+ )\, Santa Clara\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:Levi's Stadium (Santa Clara)\, Santa Clara\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-045@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260623T170000Z
+DTEND:20260623T190000Z
+SUMMARY:🇵🇹 葡萄牙 比 🇺🇿 烏茲別克
+DESCRIPTION:對戰：葡萄牙 vs 烏茲別克\n階段：小組K\n台灣
+ 時間：2026/06/24 01:00 - 03:00\n場地：NRG Stadium\, Houston\, USA
+ \n資料來源：公開 Google 行事曆，已修正附加賽占位與
+ 中文顯示。
+LOCATION:NRG Stadium\, Houston\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-046@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260623T200000Z
+DTEND:20260623T220000Z
+SUMMARY:🏴 英格蘭 比 🇬🇭 迦納
+DESCRIPTION:對戰：英格蘭 vs 迦納\n階段：小組L\n台灣時間
+ ：2026/06/24 04:00 - 06:00\n場地：Gillette Stadium (Foxborough)\, F
+ oxborough\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-047@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260623T230000Z
+DTEND:20260624T010000Z
+SUMMARY:🇵🇦 巴拿馬 比 🇭🇷 克羅埃西亞
+DESCRIPTION:對戰：巴拿馬 vs 克羅埃西亞\n階段：小組L\n台
+ 灣時間：2026/06/24 07:00 - 09:00\n場地：Gillette Stadium (Foxbor
+ ough)\, Foxborough\, USA\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-048@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260624T020000Z
+DTEND:20260624T040000Z
+SUMMARY:🇨🇴 哥倫比亞 比 🇨🇩 剛果民主共和國
+DESCRIPTION:對戰：哥倫比亞 vs 剛果民主共和國\n階段：小
+ 組K\n台灣時間：2026/06/24 10:00 - 12:00\n場地：Estadio Akron (
+ Guadalajara Stadium)\, Zapopan\, Mexico\n資料來源：公開 Google 
+ 行事曆，已修正附加賽占位與中文顯示。
+LOCATION:Estadio Akron (Guadalajara Stadium)\, Zapopan\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-049@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260624T190000Z
+DTEND:20260624T210000Z
+SUMMARY:🇧🇦 波士尼亞與赫塞哥維納 比 🇶🇦 卡達
+DESCRIPTION:對戰：波士尼亞與赫塞哥維納 vs 卡達\n階段：
+ 小組B\n台灣時間：2026/06/25 03:00 - 05:00\n場地：Lumen Field\
+ , Seattle\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Lumen Field\, Seattle\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-050@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260624T190000Z
+DTEND:20260624T210000Z
+SUMMARY:🇨🇭 瑞士 比 🇨🇦 加拿大
+DESCRIPTION:對戰：瑞士 vs 加拿大\n階段：小組B\n台灣時間
+ ：2026/06/25 03:00 - 05:00\n場地：BC Place\, Vancouver\, Canada\n
+ 資料來源：公開 Google 行事曆，已修正附加賽占位與中
+ 文顯示。
+LOCATION:BC Place\, Vancouver\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-051@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260624T220000Z
+DTEND:20260625T000000Z
+SUMMARY:🏴 蘇格蘭 比 🇧🇷 巴西
+DESCRIPTION:對戰：蘇格蘭 vs 巴西\n階段：小組C\n台灣時間
+ ：2026/06/25 06:00 - 08:00\n場地：Hard Rock Stadium (Miami Gardens)
+ \, Miami\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Hard Rock Stadium (Miami Gardens)\, Miami\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-052@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260624T220000Z
+DTEND:20260625T000000Z
+SUMMARY:🇲🇦 摩洛哥 比 🇭🇹 海地
+DESCRIPTION:對戰：摩洛哥 vs 海地\n階段：小組C\n台灣時間
+ ：2026/06/25 06:00 - 08:00\n場地：Mercedes-Benz Stadium\, Atlanta\,
+  USA\n資料來源：公開 Google 行事曆，已修正附加賽占位
+ 與中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-053@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260625T010000Z
+DTEND:20260625T030000Z
+SUMMARY:🇿🇦 南非 比 🇰🇷 南韓
+DESCRIPTION:對戰：南非 vs 南韓\n階段：小組A\n台灣時間：2
+ 026/06/25 09:00 - 11:00\n場地：Estadio BBVA (Monterrey Stadium)\, Gu
+ adalupe\, Mexico\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Estadio BBVA (Monterrey Stadium)\, Guadalupe\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-054@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260625T010000Z
+DTEND:20260625T030000Z
+SUMMARY:🇨🇿 捷克 比 🇲🇽 墨西哥
+DESCRIPTION:對戰：捷克 vs 墨西哥\n階段：小組A\n台灣時間
+ ：2026/06/25 09:00 - 11:00\n場地：Estadio Azteca (Mexico City Stadi
+ um)\, Mexico City\, Mexico\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:Estadio Azteca (Mexico City Stadium)\, Mexico City\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-055@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260625T200000Z
+DTEND:20260625T220000Z
+SUMMARY:🇨🇼 庫拉索 比 🇨🇮 象牙海岸
+DESCRIPTION:對戰：庫拉索 vs 象牙海岸\n階段：小組E\n台灣
+ 時間：2026/06/26 04:00 - 06:00\n場地：Lincoln Financial Field\, P
+ hiladelphia\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:Lincoln Financial Field\, Philadelphia\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-056@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260625T200000Z
+DTEND:20260625T220000Z
+SUMMARY:🇪🇨 厄瓜多 比 🇩🇪 德國
+DESCRIPTION:對戰：厄瓜多 vs 德國\n階段：小組E\n台灣時間
+ ：2026/06/26 04:00 - 06:00\n場地：MetLife Stadium (East Rutherford)
+ \, New Jersey\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:MetLife Stadium (East Rutherford)\, New Jersey\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-057@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260625T230000Z
+DTEND:20260626T010000Z
+SUMMARY:🇯🇵 日本 比 🇸🇪 瑞典
+DESCRIPTION:對戰：日本 vs 瑞典\n階段：小組F\n台灣時間：2
+ 026/06/26 07:00 - 09:00\n場地：AT&T Stadium (Arlington)\, Arlington\
+ , USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-058@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260625T230000Z
+DTEND:20260626T010000Z
+SUMMARY:🇹🇳 突尼西亞 比 🇳🇱 荷蘭
+DESCRIPTION:對戰：突尼西亞 vs 荷蘭\n階段：小組F\n台灣時
+ 間：2026/06/26 07:00 - 09:00\n場地：Arrowhead Stadium\, Kansas Cit
+ y\, USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:Arrowhead Stadium\, Kansas City\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-059@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260626T020000Z
+DTEND:20260626T040000Z
+SUMMARY:🇵🇾 巴拉圭 比 🇦🇺 澳洲
+DESCRIPTION:對戰：巴拉圭 vs 澳洲\n階段：小組D\n台灣時間
+ ：2026/06/26 10:00 - 12:00\n場地：Levi's Stadium (Santa Clara)\, Sa
+ nta Clara\, USA\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:Levi's Stadium (Santa Clara)\, Santa Clara\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-060@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260626T020000Z
+DTEND:20260626T040000Z
+SUMMARY:🇹🇷 土耳其 比 🇺🇸 美國
+DESCRIPTION:對戰：土耳其 vs 美國\n階段：小組D\n台灣時間
+ ：2026/06/26 10:00 - 12:00\n場地：SoFi Stadium (Inglewood)\, Los An
+ geles\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-061@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260626T190000Z
+DTEND:20260626T210000Z
+SUMMARY:🇸🇳 塞內加爾 比 🇮🇶 伊拉克
+DESCRIPTION:對戰：塞內加爾 vs 伊拉克\n階段：小組I\n台灣
+ 時間：2026/06/27 03:00 - 05:00\n場地：BMO Field\, Toronto\, Canad
+ a\n資料來源：公開 Google 行事曆，已修正附加賽占位與
+ 中文顯示。
+LOCATION:BMO Field\, Toronto\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-062@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260626T190000Z
+DTEND:20260626T210000Z
+SUMMARY:🇳🇴 挪威 比 🇫🇷 法國
+DESCRIPTION:對戰：挪威 vs 法國\n階段：小組I\n台灣時間：2
+ 026/06/27 03:00 - 05:00\n場地：Gillette Stadium (Foxborough)\, Foxbo
+ rough\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-063@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T000000Z
+DTEND:20260627T020000Z
+SUMMARY:🇨🇻 維德角 比 🇸🇦 沙烏地阿拉伯
+DESCRIPTION:對戰：維德角 vs 沙烏地阿拉伯\n階段：小組H\n
+ 台灣時間：2026/06/27 08:00 - 10:00\n場地：NRG Stadium\, Houston
+ \, USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:NRG Stadium\, Houston\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-064@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T000000Z
+DTEND:20260627T020000Z
+SUMMARY:🇺🇾 烏拉圭 比 🇪🇸 西班牙
+DESCRIPTION:對戰：烏拉圭 vs 西班牙\n階段：小組H\n台灣時
+ 間：2026/06/27 08:00 - 10:00\n場地：Estadio Akron (Guadalajara Sta
+ dium)\, Zapopan\, Mexico\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:Estadio Akron (Guadalajara Stadium)\, Zapopan\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-065@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T030000Z
+DTEND:20260627T050000Z
+SUMMARY:🇳🇿 紐西蘭 比 🇧🇪 比利時
+DESCRIPTION:對戰：紐西蘭 vs 比利時\n階段：小組G\n台灣時
+ 間：2026/06/27 11:00 - 13:00\n場地：BC Place\, Vancouver\, Canada\
+ n資料來源：公開 Google 行事曆，已修正附加賽占位與
+ 中文顯示。
+LOCATION:BC Place\, Vancouver\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-066@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T030000Z
+DTEND:20260627T050000Z
+SUMMARY:🇪🇬 埃及 比 🇮🇷 伊朗
+DESCRIPTION:對戰：埃及 vs 伊朗\n階段：小組G\n台灣時間：2
+ 026/06/27 11:00 - 13:00\n場地：Lumen Field\, Seattle\, USA\n資料
+ 來源：公開 Google 行事曆，已修正附加賽占位與中文顯
+ 示。
+LOCATION:Lumen Field\, Seattle\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-067@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T210000Z
+DTEND:20260627T230000Z
+SUMMARY:🇭🇷 克羅埃西亞 比 🇬🇭 迦納
+DESCRIPTION:對戰：克羅埃西亞 vs 迦納\n階段：小組L\n台灣
+ 時間：2026/06/28 05:00 - 07:00\n場地：Lincoln Financial Field\, P
+ hiladelphia\, USA\n資料來源：公開 Google 行事曆，已修正
+ 附加賽占位與中文顯示。
+LOCATION:Lincoln Financial Field\, Philadelphia\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-068@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T210000Z
+DTEND:20260627T230000Z
+SUMMARY:🇵🇦 巴拿馬 比 🏴 英格蘭
+DESCRIPTION:對戰：巴拿馬 vs 英格蘭\n階段：小組L\n台灣時
+ 間：2026/06/28 05:00 - 07:00\n場地：MetLife Stadium (East Rutherfo
+ rd)\, New Jersey\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:MetLife Stadium (East Rutherford)\, New Jersey\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-069@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T233000Z
+DTEND:20260628T013000Z
+SUMMARY:🇨🇴 哥倫比亞 比 🇵🇹 葡萄牙
+DESCRIPTION:對戰：哥倫比亞 vs 葡萄牙\n階段：小組K\n台灣
+ 時間：2026/06/28 07:30 - 09:30\n場地：Hard Rock Stadium (Miami Ga
+ rdens)\, Miami\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:Hard Rock Stadium (Miami Gardens)\, Miami\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-070@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260627T233000Z
+DTEND:20260628T013000Z
+SUMMARY:🇨🇩 剛果民主共和國 比 🇺🇿 烏茲別克
+DESCRIPTION:對戰：剛果民主共和國 vs 烏茲別克\n階段：小
+ 組K\n台灣時間：2026/06/28 07:30 - 09:30\n場地：Mercedes-Benz S
+ tadium\, Atlanta\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-071@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260628T020000Z
+DTEND:20260628T040000Z
+SUMMARY:🇯🇴 約旦 比 🇦🇷 阿根廷
+DESCRIPTION:對戰：約旦 vs 阿根廷\n階段：小組J\n台灣時間
+ ：2026/06/28 10:00 - 12:00\n場地：AT&T Stadium (Arlington)\, Arling
+ ton\, USA\n資料來源：公開 Google 行事曆，已修正附加賽
+ 占位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-072@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260628T020000Z
+DTEND:20260628T040000Z
+SUMMARY:🇩🇿 阿爾及利亞 比 🇦🇹 奧地利
+DESCRIPTION:對戰：阿爾及利亞 vs 奧地利\n階段：小組J\n台
+ 灣時間：2026/06/28 10:00 - 12:00\n場地：Arrowhead Stadium\, Kans
+ as City\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:Arrowhead Stadium\, Kansas City\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-073@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260628T190000Z
+DTEND:20260628T213000Z
+SUMMARY:A 組第 2 名 比 B 組第 2 名
+DESCRIPTION:對戰：A 組第 2 名 vs B 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/06/29 03:00 - 05:30\n場地：SoFi Stadium (Inglewo
+ od)\, Los Angeles\, USA\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-074@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260629T170000Z
+DTEND:20260629T193000Z
+SUMMARY:C 組第 1 名 比 F 組第 2 名
+DESCRIPTION:對戰：C 組第 1 名 vs F 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/06/30 01:00 - 03:30\n場地：NRG Stadium\, Houston
+ \, USA\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:NRG Stadium\, Houston\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-075@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260629T203000Z
+DTEND:20260629T230000Z
+SUMMARY:E 組第 1 名 比 A/B/C/D/F 組第 3 名
+DESCRIPTION:對戰：E 組第 1 名 vs A/B/C/D/F 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/06/30 04:30 - 07:00\n場地：Gillette Stadi
+ um (Foxborough)\, Foxborough\, USA\n資料來源：公開 Google 行事
+ 曆，已修正附加賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-076@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260630T010000Z
+DTEND:20260630T033000Z
+SUMMARY:F 組第 1 名 比 C 組第 2 名
+DESCRIPTION:對戰：F 組第 1 名 vs C 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/06/30 09:00 - 11:30\n場地：Estadio BBVA (Monterr
+ ey Stadium)\, Guadalupe\, Mexico\n資料來源：公開 Google 行事
+ 曆，已修正附加賽占位與中文顯示。
+LOCATION:Estadio BBVA (Monterrey Stadium)\, Guadalupe\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-077@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260630T170000Z
+DTEND:20260630T193000Z
+SUMMARY:E 組第 2 名 比 I 組第 2 名
+DESCRIPTION:對戰：E 組第 2 名 vs I 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/07/01 01:00 - 03:30\n場地：AT&T Stadium (Arlingt
+ on)\, Arlington\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-078@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260630T210000Z
+DTEND:20260630T233000Z
+SUMMARY:I 組第 1 名 比 C/D/F/G/H 組第 3 名
+DESCRIPTION:對戰：I 組第 1 名 vs C/D/F/G/H 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/07/01 05:00 - 07:30\n場地：MetLife Stadiu
+ m (East Rutherford)\, New Jersey\, USA\n資料來源：公開 Google 
+ 行事曆，已修正附加賽占位與中文顯示。
+LOCATION:MetLife Stadium (East Rutherford)\, New Jersey\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-079@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260701T010000Z
+DTEND:20260701T033000Z
+SUMMARY:A 組第 1 名 比 C/E/F/H/I 組第 3 名
+DESCRIPTION:對戰：A 組第 1 名 vs C/E/F/H/I 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/07/01 09:00 - 11:30\n場地：Estadio Azteca
+  (Mexico City Stadium)\, Mexico City\, Mexico\n資料來源：公開 Go
+ ogle 行事曆，已修正附加賽占位與中文顯示。
+LOCATION:Estadio Azteca (Mexico City Stadium)\, Mexico City\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-080@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260701T160000Z
+DTEND:20260701T183000Z
+SUMMARY:L 組第 1 名 比 E/H/I/J/K 組第 3 名
+DESCRIPTION:對戰：L 組第 1 名 vs E/H/I/J/K 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/07/02 00:00 - 02:30\n場地：Mercedes-Benz 
+ Stadium\, Atlanta\, USA\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-081@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260701T200000Z
+DTEND:20260701T223000Z
+SUMMARY:G 組第 1 名 比 A/E/H/I/J 組第 3 名
+DESCRIPTION:對戰：G 組第 1 名 vs A/E/H/I/J 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/07/02 04:00 - 06:30\n場地：Lumen Field\, 
+ Seattle\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:Lumen Field\, Seattle\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-082@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260702T000000Z
+DTEND:20260702T023000Z
+SUMMARY:D 組第 1 名 比 B/E/F/I/J 組第 3 名
+DESCRIPTION:對戰：D 組第 1 名 vs B/E/F/I/J 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/07/02 08:00 - 10:30\n場地：Levi's Stadium
+  (Santa Clara)\, Santa Clara\, USA\n資料來源：公開 Google 行事
+ 曆，已修正附加賽占位與中文顯示。
+LOCATION:Levi's Stadium (Santa Clara)\, Santa Clara\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-083@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260702T190000Z
+DTEND:20260702T213000Z
+SUMMARY:H 組第 1 名 比 J 組第 2 名
+DESCRIPTION:對戰：H 組第 1 名 vs J 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/07/03 03:00 - 05:30\n場地：SoFi Stadium (Inglewo
+ od)\, Los Angeles\, USA\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-084@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260702T230000Z
+DTEND:20260703T013000Z
+SUMMARY:K 組第 2 名 比 L 組第 2 名
+DESCRIPTION:對戰：K 組第 2 名 vs L 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/07/03 07:00 - 09:30\n場地：BMO Field\, Toronto\,
+  Canada\n資料來源：公開 Google 行事曆，已修正附加賽占
+ 位與中文顯示。
+LOCATION:BMO Field\, Toronto\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-085@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260703T030000Z
+DTEND:20260703T053000Z
+SUMMARY:B 組第 1 名 比 E/F/G/I/J 組第 3 名
+DESCRIPTION:對戰：B 組第 1 名 vs E/F/G/I/J 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/07/03 11:00 - 13:30\n場地：BC Place\, Van
+ couver\, Canada\n資料來源：公開 Google 行事曆，已修正附
+ 加賽占位與中文顯示。
+LOCATION:BC Place\, Vancouver\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-086@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260703T180000Z
+DTEND:20260703T203000Z
+SUMMARY:D 組第 2 名 比 G 組第 2 名
+DESCRIPTION:對戰：D 組第 2 名 vs G 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/07/04 02:00 - 04:30\n場地：AT&T Stadium (Arlingt
+ on)\, Arlington\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-087@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260703T220000Z
+DTEND:20260704T003000Z
+SUMMARY:J 組第 1 名 比 H 組第 2 名
+DESCRIPTION:對戰：J 組第 1 名 vs H 組第 2 名\n階段：32 強\n
+ 台灣時間：2026/07/04 06:00 - 08:30\n場地：Hard Rock Stadium (Mi
+ ami Gardens)\, Miami\, USA\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:Hard Rock Stadium (Miami Gardens)\, Miami\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-088@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260704T013000Z
+DTEND:20260704T040000Z
+SUMMARY:K 組第 1 名 比 D/E/I/J/L 組第 3 名
+DESCRIPTION:對戰：K 組第 1 名 vs D/E/I/J/L 組第 3 名\n階段：3
+ 2 強\n台灣時間：2026/07/04 09:30 - 12:00\n場地：Arrowhead Stad
+ ium\, Kansas City\, USA\n資料來源：公開 Google 行事曆，已
+ 修正附加賽占位與中文顯示。
+LOCATION:Arrowhead Stadium\, Kansas City\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-089@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260704T170000Z
+DTEND:20260704T193000Z
+SUMMARY:第 73 場勝方 比 第 75 場勝方
+DESCRIPTION:對戰：第 73 場勝方 vs 第 75 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/05 01:00 - 03:30\n場地：NRG Stadium\, Ho
+ uston\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:NRG Stadium\, Houston\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-090@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260704T210000Z
+DTEND:20260704T233000Z
+SUMMARY:第 74 場勝方 比 第 77 場勝方
+DESCRIPTION:對戰：第 74 場勝方 vs 第 77 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/05 05:00 - 07:30\n場地：Lincoln Financia
+ l Field\, Philadelphia\, USA\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:Lincoln Financial Field\, Philadelphia\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-091@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260705T200000Z
+DTEND:20260705T223000Z
+SUMMARY:第 76 場勝方 比 第 78 場勝方
+DESCRIPTION:對戰：第 76 場勝方 vs 第 78 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/06 04:00 - 06:30\n場地：MetLife Stadium 
+ (East Rutherford)\, New Jersey\, USA\n資料來源：公開 Google 行
+ 事曆，已修正附加賽占位與中文顯示。
+LOCATION:MetLife Stadium (East Rutherford)\, New Jersey\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-092@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260706T000000Z
+DTEND:20260706T023000Z
+SUMMARY:第 79 場勝方 比 第 80 場勝方
+DESCRIPTION:對戰：第 79 場勝方 vs 第 80 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/06 08:00 - 10:30\n場地：Estadio Azteca (
+ Mexico City Stadium)\, Mexico City\, Mexico\n資料來源：公開 Goog
+ le 行事曆，已修正附加賽占位與中文顯示。
+LOCATION:Estadio Azteca (Mexico City Stadium)\, Mexico City\, Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-093@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260706T190000Z
+DTEND:20260706T213000Z
+SUMMARY:第 83 場勝方 比 第 84 場勝方
+DESCRIPTION:對戰：第 83 場勝方 vs 第 84 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/07 03:00 - 05:30\n場地：AT&T Stadium (Ar
+ lington)\, Arlington\, USA\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-094@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260707T000000Z
+DTEND:20260707T023000Z
+SUMMARY:第 81 場勝方 比 第 82 場勝方
+DESCRIPTION:對戰：第 81 場勝方 vs 第 82 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/07 08:00 - 10:30\n場地：Lumen Field\, Se
+ attle\, USA\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:Lumen Field\, Seattle\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-095@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260707T160000Z
+DTEND:20260707T183000Z
+SUMMARY:第 86 場勝方 比 第 88 場勝方
+DESCRIPTION:對戰：第 86 場勝方 vs 第 88 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/08 00:00 - 02:30\n場地：Mercedes-Benz St
+ adium\, Atlanta\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-096@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260707T200000Z
+DTEND:20260707T223000Z
+SUMMARY:第 85 場勝方 比 第 87 場勝方
+DESCRIPTION:對戰：第 85 場勝方 vs 第 87 場勝方\n階段：16 
+ 強\n台灣時間：2026/07/08 04:00 - 06:30\n場地：BC Place\, Vanco
+ uver\, Canada\n資料來源：公開 Google 行事曆，已修正附加
+ 賽占位與中文顯示。
+LOCATION:BC Place\, Vancouver\, Canada
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-097@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260709T200000Z
+DTEND:20260709T223000Z
+SUMMARY:第 89 場勝方 比 第 90 場勝方
+DESCRIPTION:對戰：第 89 場勝方 vs 第 90 場勝方\n階段：八
+ 強\n台灣時間：2026/07/10 04:00 - 06:30\n場地：Gillette Stadium
+  (Foxborough)\, Foxborough\, USA\n資料來源：公開 Google 行事
+ 曆，已修正附加賽占位與中文顯示。
+LOCATION:Gillette Stadium (Foxborough)\, Foxborough\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-098@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260710T190000Z
+DTEND:20260710T213000Z
+SUMMARY:第 93 場勝方 比 第 94 場勝方
+DESCRIPTION:對戰：第 93 場勝方 vs 第 94 場勝方\n階段：八
+ 強\n台灣時間：2026/07/11 03:00 - 05:30\n場地：SoFi Stadium (In
+ glewood)\, Los Angeles\, USA\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:SoFi Stadium (Inglewood)\, Los Angeles\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-099@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260711T210000Z
+DTEND:20260711T233000Z
+SUMMARY:第 91 場勝方 比 第 92 場勝方
+DESCRIPTION:對戰：第 91 場勝方 vs 第 92 場勝方\n階段：八
+ 強\n台灣時間：2026/07/12 05:00 - 07:30\n場地：Hard Rock Stadiu
+ m (Miami Gardens)\, Miami\, USA\n資料來源：公開 Google 行事曆
+ ，已修正附加賽占位與中文顯示。
+LOCATION:Hard Rock Stadium (Miami Gardens)\, Miami\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-100@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260712T010000Z
+DTEND:20260712T033000Z
+SUMMARY:第 95 場勝方 比 第 96 場勝方
+DESCRIPTION:對戰：第 95 場勝方 vs 第 96 場勝方\n階段：八
+ 強\n台灣時間：2026/07/12 09:00 - 11:30\n場地：Arrowhead Stadiu
+ m\, Kansas City\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:Arrowhead Stadium\, Kansas City\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-101@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260714T190000Z
+DTEND:20260714T213000Z
+SUMMARY:第 97 場勝方 比 第 98 場勝方
+DESCRIPTION:對戰：第 97 場勝方 vs 第 98 場勝方\n階段：四
+ 強\n台灣時間：2026/07/15 03:00 - 05:30\n場地：AT&T Stadium (Ar
+ lington)\, Arlington\, USA\n資料來源：公開 Google 行事曆，
+ 已修正附加賽占位與中文顯示。
+LOCATION:AT&T Stadium (Arlington)\, Arlington\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-102@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260715T190000Z
+DTEND:20260715T213000Z
+SUMMARY:第 99 場勝方 比 第 100 場勝方
+DESCRIPTION:對戰：第 99 場勝方 vs 第 100 場勝方\n階段：四
+ 強\n台灣時間：2026/07/16 03:00 - 05:30\n場地：Mercedes-Benz St
+ adium\, Atlanta\, USA\n資料來源：公開 Google 行事曆，已修
+ 正附加賽占位與中文顯示。
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-103@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260718T210000Z
+DTEND:20260718T233000Z
+SUMMARY:第 101 場敗方 比 第 102 場敗方
+DESCRIPTION:對戰：第 101 場敗方 vs 第 102 場敗方\n階段：季
+ 軍戰\n台灣時間：2026/07/19 05:00 - 07:30\n場地：Hard Rock Sta
+ dium (Miami Gardens)\, Miami\, USA\n資料來源：公開 Google 行事
+ 曆，已修正附加賽占位與中文顯示。
+LOCATION:Hard Rock Stadium (Miami Gardens)\, Miami\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fwc26-zh-104@codex.local
+DTSTAMP:20260612T234953Z
+DTSTART:20260719T190000Z
+DTEND:20260719T220000Z
+SUMMARY:第 101 場勝方 比 第 102 場勝方
+DESCRIPTION:對戰：第 101 場勝方 vs 第 102 場勝方\n階段：決
+ 賽\n台灣時間：2026/07/20 03:00 - 06:00\n場地：MetLife Stadium 
+ (East Rutherford)\, New Jersey\, USA\n資料來源：公開 Google 行
+ 事曆，已修正附加賽占位與中文顯示。
+LOCATION:MetLife Stadium (East Rutherford)\, New Jersey\, USA
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

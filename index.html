@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 世界盃中文賽程訂閱</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --ink: #1f2428;
+      --muted: #626b71;
+      --line: #d8dee7;
+      --panel: #ffffff;
+      --accent: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+    }
+    main {
+      width: min(840px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 42px 0;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+    }
+    p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      box-shadow: 0 18px 45px rgba(31, 36, 40, .08);
+    }
+    .url {
+      width: 100%;
+      min-height: 46px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #f8fafc;
+      font-family: Consolas, monospace;
+      overflow-wrap: anywhere;
+      color: var(--ink);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    button, a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 0 14px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a.secondary {
+      background: #fff;
+      color: var(--accent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      width: 150px;
+      background: #f8fafc;
+    }
+    tr:last-child th, tr:last-child td { border-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>2026 世界盃中文賽程訂閱</h1>
+    <p>這份 iCal 是中文短標題版本，Google 行事曆上會顯示例如「🇩🇪 德國 比 🇨🇼 庫拉索」。</p>
+
+    <section class="panel">
+      <p>訂閱網址</p>
+      <div id="icsUrl" class="url"></div>
+      <div class="actions">
+        <button id="copyBtn" type="button">複製 iCal 網址</button>
+        <a id="googleBtn" class="button secondary" href="#" target="_blank" rel="noopener">開啟 Google 行事曆加入</a>
+        <a class="button secondary" href="calendar.ics">下載 calendar.ics</a>
+      </div>
+    </section>
+
+    <table>
+      <tr>
+        <th>匯入方式</th>
+        <td>Google 行事曆左側「其他日曆」旁的 + →「透過網址」→ 貼上上方 iCal 網址。</td>
+      </tr>
+      <tr>
+        <th>更新方式</th>
+        <td>之後只要更新這個 GitHub Pages 上的 calendar.ics，Google 會定期同步。</td>
+      </tr>
+      <tr>
+        <th>刪除方式</th>
+        <td>取消訂閱這個其他日曆即可，不會像匯入 .ics 一樣散落在主行事曆。</td>
+      </tr>
+    </table>
+  </main>
+
+  <script>
+    const icsUrl = new URL("calendar.ics", window.location.href).href;
+    document.querySelector("#icsUrl").textContent = icsUrl;
+    document.querySelector("#googleBtn").href =
+      "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(icsUrl);
+    document.querySelector("#copyBtn").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(icsUrl);
+      document.querySelector("#copyBtn").textContent = "已複製";
+      setTimeout(() => document.querySelector("#copyBtn").textContent = "複製 iCal 網址", 1400);
+    });
+  </script>
+</body>
+</html>
