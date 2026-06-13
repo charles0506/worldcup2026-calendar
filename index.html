@@ -104,7 +104,7 @@
 <body>
   <main>
     <h1>2026 世界盃中文賽程訂閱</h1>
-    <p>這份 iCal 是中文短標題版本，Google 行事曆上會顯示例如「🇩🇪 德國 比 🇨🇼 庫拉索」。</p>
+    <p>這份 iCal 是 Google 友善版中文短標題，行事曆上會顯示例如「德國 比 庫拉索」。</p>
 
     <section class="panel">
       <p>訂閱網址</p>
@@ -112,7 +112,7 @@
       <div class="actions">
         <button id="copyBtn" type="button">複製 iCal 網址</button>
         <a id="googleBtn" class="button secondary" href="#" target="_blank" rel="noopener">開啟 Google 行事曆加入</a>
-        <a class="button secondary" href="calendar.ics">下載 calendar.ics</a>
+        <a class="button secondary" href="google-calendar.ics">下載 google-calendar.ics</a>
       </div>
     </section>
 
@@ -123,7 +123,7 @@
       </tr>
       <tr>
         <th>更新方式</th>
-        <td>之後只要更新這個 GitHub Pages 上的 calendar.ics，Google 會定期同步。</td>
+        <td>之後只要更新這個 GitHub Pages 上的 google-calendar.ics，Google 會定期同步。</td>
       </tr>
       <tr>
         <th>刪除方式</th>
@@ -133,7 +133,7 @@
   </main>
 
   <script>
-    const icsUrl = new URL("calendar.ics", window.location.href).href;
+    const icsUrl = new URL("google-calendar.ics", window.location.href).href;
     document.querySelector("#icsUrl").textContent = icsUrl;
     document.querySelector("#googleBtn").href =
       "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(icsUrl);
