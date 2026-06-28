@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026 世界盃中文賽程訂閱</title>
+  <title>2026 世界盃賽程</title>
   <style>
     :root {
       color-scheme: light;
@@ -13,6 +13,8 @@
       --line: #d8dee7;
       --panel: #ffffff;
       --accent: #0f766e;
+      --accent-2: #b91c1c;
+      --shadow: 0 18px 45px rgba(31, 36, 40, .08);
     }
     * { box-sizing: border-box; }
     body {
@@ -20,128 +22,1499 @@
       background: var(--bg);
       color: var(--ink);
       font-family: "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      letter-spacing: 0;
     }
-    main {
-      width: min(840px, calc(100vw - 32px));
+    header {
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+    .wrap {
+      width: min(1180px, calc(100vw - 32px));
       margin: 0 auto;
-      padding: 42px 0;
+    }
+    .top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      padding: 28px 0 20px;
     }
     h1 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.08;
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.05;
+      font-weight: 900;
     }
-    p {
-      margin: 0 0 18px;
+    .subtitle {
+      margin: 0;
       color: var(--muted);
-      line-height: 1.7;
+      font-size: 15px;
     }
-    .panel {
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(86px, auto));
+      gap: 10px;
+      text-align: right;
+    }
+    .stat {
+      padding: 10px 12px;
       border: 1px solid var(--line);
-      border-radius: 8px;
       background: var(--panel);
-      padding: 18px;
-      box-shadow: 0 18px 45px rgba(31, 36, 40, .08);
+      box-shadow: var(--shadow);
     }
-    .url {
-      width: 100%;
-      min-height: 46px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #f8fafc;
-      font-family: Consolas, monospace;
-      overflow-wrap: anywhere;
-      color: var(--ink);
+    .stat b {
+      display: block;
+      font-size: 22px;
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
     }
     .actions {
+      grid-column: 1 / -1;
       display: flex;
-      flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 12px;
     }
-    button, a.button {
+    .action-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
-      border: 1px solid var(--accent);
+      min-height: 38px;
+      padding: 0 12px;
       border-radius: 6px;
-      padding: 0 14px;
-      background: var(--accent);
-      color: #fff;
-      font: inherit;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 13px;
       font-weight: 800;
       text-decoration: none;
-      cursor: pointer;
+      white-space: nowrap;
     }
-    a.secondary {
-      background: #fff;
-      color: var(--accent);
+    .action-link.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
     }
-    table {
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr 180px 180px;
+      gap: 12px;
+      padding: 16px 0;
+    }
+    input, select {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 18px;
-      background: var(--panel);
+      min-height: 42px;
       border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      padding: 0 12px;
+      font: inherit;
+      border-radius: 6px;
+    }
+    main {
+      padding: 18px 0 44px;
+    }
+    .calendar {
+      display: grid;
+      gap: 10px;
+    }
+    .date-row {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 14px 4px 6px;
+      background: linear-gradient(var(--bg) 78%, rgba(245, 247, 251, 0));
+      color: var(--accent);
+      font-weight: 900;
+    }
+    .match-card {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr) minmax(180px, 320px);
+      gap: 16px;
+      align-items: center;
+      min-height: 74px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(31, 36, 40, .045);
       border-radius: 8px;
-      overflow: hidden;
     }
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid var(--line);
-      text-align: left;
-      vertical-align: top;
+    .time {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--accent-2);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
-    th {
-      width: 150px;
-      background: #f8fafc;
+    .matchup {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      min-width: 0;
     }
-    tr:last-child th, tr:last-child td { border-bottom: 0; }
+    .team, .choice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .team > span, .choice > span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .multi {
+      display: grid;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #3e474d;
+    }
+    .flag {
+      width: 34px;
+      height: 23px;
+      object-fit: cover;
+      border: 1px solid rgba(31, 36, 40, .18);
+      box-shadow: 0 1px 2px rgba(31, 36, 40, .16);
+      flex: 0 0 auto;
+      background: #eee;
+    }
+    .flag-placeholder {
+      width: 34px;
+      height: 23px;
+      flex: 0 0 auto;
+      border: 1px dashed #b9b0a3;
+      background: #edf1f5;
+    }
+    .versus {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e8f3f0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .empty {
+      display: none;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      text-align: center;
+      color: var(--muted);
+      border-radius: 8px;
+    }
+    @media (max-width: 820px) {
+      .top, .toolbar, .match-card {
+        grid-template-columns: 1fr;
+      }
+      .summary {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+      }
+      .actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      .match-card {
+        gap: 10px;
+      }
+      .matchup {
+        grid-template-columns: 1fr 34px 1fr;
+        gap: 8px;
+      }
+      .versus {
+        width: 34px;
+        height: 34px;
+      }
+      .meta {
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+      }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>2026 世界盃中文賽程訂閱</h1>
-    <p>這份 iCal 是 Google 友善版中文短標題，行事曆上會顯示例如「德國 比 庫拉索」。</p>
-
-    <section class="panel">
-      <p>訂閱網址</p>
-      <div id="icsUrl" class="url"></div>
-      <div class="actions">
-        <button id="copyBtn" type="button">複製 iCal 網址</button>
-        <a id="googleBtn" class="button secondary" href="#" target="_blank" rel="noopener">開啟 Google 行事曆加入</a>
-        <a class="button secondary" href="google-calendar.ics">下載 google-calendar.ics</a>
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <h1>2026 世界盃賽程</h1>
+          <p class="subtitle">台灣時間｜2026-06-12 到 2026-07-20｜公開 Google 行事曆重新排版</p>
+        </div>
+        <div class="summary" aria-label="賽程摘要">
+          <div class="stat"><b>104</b><span>場比賽</span></div>
+          <div class="stat"><b>34</b><span>比賽日</span></div>
+          <div class="stat"><b>UTC+8</b><span>台灣時間</span></div>
+          <div class="actions">
+            <a class="action-link primary" href="worldcup2026_calendar_zh.ics" download>下載中文 ICS</a>
+            <a class="action-link" href="https://calendar.google.com/calendar/u/0/r?cid=e2cf72e417cc9738ce93759f012cff5b2ab261a3e507a70d84b2745482472c11%40group.calendar.google.com" target="_blank" rel="noopener">原始 Google 日曆</a>
+          </div>
+        </div>
       </div>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="搜尋國家、階段、場地">
+        <select id="stage">
+          <option value="">全部階段</option>
+          <option value="16 強">16 強</option>
+<option value="32 強">32 強</option>
+<option value="八強">八強</option>
+<option value="四強">四強</option>
+<option value="季軍戰">季軍戰</option>
+<option value="小組A">小組A</option>
+<option value="小組B">小組B</option>
+<option value="小組C">小組C</option>
+<option value="小組D">小組D</option>
+<option value="小組E">小組E</option>
+<option value="小組F">小組F</option>
+<option value="小組G">小組G</option>
+<option value="小組H">小組H</option>
+<option value="小組I">小組I</option>
+<option value="小組J">小組J</option>
+<option value="小組K">小組K</option>
+<option value="小組L">小組L</option>
+<option value="決賽">決賽</option>
+        </select>
+        <select id="date">
+          <option value="">全部日期</option>
+          <option value="2026-06-12">2026-06-12</option><option value="2026-06-13">2026-06-13</option><option value="2026-06-14">2026-06-14</option><option value="2026-06-15">2026-06-15</option><option value="2026-06-16">2026-06-16</option><option value="2026-06-17">2026-06-17</option><option value="2026-06-18">2026-06-18</option><option value="2026-06-19">2026-06-19</option><option value="2026-06-20">2026-06-20</option><option value="2026-06-21">2026-06-21</option><option value="2026-06-22">2026-06-22</option><option value="2026-06-23">2026-06-23</option><option value="2026-06-24">2026-06-24</option><option value="2026-06-25">2026-06-25</option><option value="2026-06-26">2026-06-26</option><option value="2026-06-27">2026-06-27</option><option value="2026-06-28">2026-06-28</option><option value="2026-06-29">2026-06-29</option><option value="2026-06-30">2026-06-30</option><option value="2026-07-01">2026-07-01</option><option value="2026-07-02">2026-07-02</option><option value="2026-07-03">2026-07-03</option><option value="2026-07-04">2026-07-04</option><option value="2026-07-05">2026-07-05</option><option value="2026-07-06">2026-07-06</option><option value="2026-07-07">2026-07-07</option><option value="2026-07-08">2026-07-08</option><option value="2026-07-10">2026-07-10</option><option value="2026-07-11">2026-07-11</option><option value="2026-07-12">2026-07-12</option><option value="2026-07-15">2026-07-15</option><option value="2026-07-16">2026-07-16</option><option value="2026-07-19">2026-07-19</option><option value="2026-07-20">2026-07-20</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section id="calendar" class="calendar" aria-label="2026 世界盃賽程">
+      <div class="date-row">2026/06/12（五）</div>
+
+            <article class="match-card" data-stage="小組A" data-date="2026-06-12">
+              <time class="time" datetime="2026-06-12T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/mx.png" alt="Mexico 國旗" loading="lazy"><span>墨西哥</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/za.png" alt="South Africa 國旗" loading="lazy"><span>南非</span></div>
+              </div>
+              <div class="meta">小組A · Estadio Azteca (Mexico City Stadium), Mexico City, Mexico</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組A" data-date="2026-06-12">
+              <time class="time" datetime="2026-06-12T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/kr.png" alt="South Korea 國旗" loading="lazy"><span>南韓</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cz.png" alt="Czechia 國旗" loading="lazy"><span>捷克</span></div>
+              </div>
+              <div class="meta">小組A · Estadio Akron (Guadalajara Stadium), Zapopan, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/06/13（六）</div>
+
+            <article class="match-card" data-stage="小組B" data-date="2026-06-13">
+              <time class="time" datetime="2026-06-13T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ca.png" alt="Canada 國旗" loading="lazy"><span>加拿大</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ba.png" alt="Bosnia &amp; Herzegovina 國旗" loading="lazy"><span>波士尼亞與赫塞哥維納</span></div>
+              </div>
+              <div class="meta">小組B · BMO Field, Toronto, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組D" data-date="2026-06-13">
+              <time class="time" datetime="2026-06-13T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/us.png" alt="USA 國旗" loading="lazy"><span>美國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/py.png" alt="Paraguay 國旗" loading="lazy"><span>巴拉圭</span></div>
+              </div>
+              <div class="meta">小組D · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/14（日）</div>
+
+            <article class="match-card" data-stage="小組B" data-date="2026-06-14">
+              <time class="time" datetime="2026-06-14T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/qa.png" alt="Qatar 國旗" loading="lazy"><span>卡達</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ch.png" alt="Switzerland 國旗" loading="lazy"><span>瑞士</span></div>
+              </div>
+              <div class="meta">小組B · Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組C" data-date="2026-06-14">
+              <time class="time" datetime="2026-06-14T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/br.png" alt="Brazil 國旗" loading="lazy"><span>巴西</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ma.png" alt="Morocco 國旗" loading="lazy"><span>摩洛哥</span></div>
+              </div>
+              <div class="meta">小組C · MetLife Stadium (East Rutherford), New Jersey, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組C" data-date="2026-06-14">
+              <time class="time" datetime="2026-06-14T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ht.png" alt="Haiti 國旗" loading="lazy"><span>海地</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gb-sct.png" alt="Scotland 國旗" loading="lazy"><span>蘇格蘭</span></div>
+              </div>
+              <div class="meta">小組C · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組D" data-date="2026-06-14">
+              <time class="time" datetime="2026-06-14T12:00:00+08:00">12:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/au.png" alt="Australia 國旗" loading="lazy"><span>澳洲</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/tr.png" alt="Turkey 國旗" loading="lazy"><span>土耳其</span></div>
+              </div>
+              <div class="meta">小組D · BC Place, Vancouver, Canada</div>
+            </article>
+            
+<div class="date-row">2026/06/15（一）</div>
+
+            <article class="match-card" data-stage="小組E" data-date="2026-06-15">
+              <time class="time" datetime="2026-06-15T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/de.png" alt="Germany 國旗" loading="lazy"><span>德國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cw.png" alt="Curacao 國旗" loading="lazy"><span>庫拉索</span></div>
+              </div>
+              <div class="meta">小組E · NRG Stadium, Houston, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組F" data-date="2026-06-15">
+              <time class="time" datetime="2026-06-15T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/nl.png" alt="Netherlands 國旗" loading="lazy"><span>荷蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/jp.png" alt="Japan 國旗" loading="lazy"><span>日本</span></div>
+              </div>
+              <div class="meta">小組F · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組E" data-date="2026-06-15">
+              <time class="time" datetime="2026-06-15T07:00:00+08:00">07:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ci.png" alt="Ivory Coast 國旗" loading="lazy"><span>象牙海岸</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ec.png" alt="Ecuador 國旗" loading="lazy"><span>厄瓜多</span></div>
+              </div>
+              <div class="meta">小組E · Lincoln Financial Field, Philadelphia, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組F" data-date="2026-06-15">
+              <time class="time" datetime="2026-06-15T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/se.png" alt="Sweden 國旗" loading="lazy"><span>瑞典</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/tn.png" alt="Tunisia 國旗" loading="lazy"><span>突尼西亞</span></div>
+              </div>
+              <div class="meta">小組F · Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/06/16（二）</div>
+
+            <article class="match-card" data-stage="小組H" data-date="2026-06-16">
+              <time class="time" datetime="2026-06-16T00:00:00+08:00">00:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/es.png" alt="Spain 國旗" loading="lazy"><span>西班牙</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cv.png" alt="Cape Verde 國旗" loading="lazy"><span>維德角</span></div>
+              </div>
+              <div class="meta">小組H · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組G" data-date="2026-06-16">
+              <time class="time" datetime="2026-06-16T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/be.png" alt="Belgium 國旗" loading="lazy"><span>比利時</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/eg.png" alt="Egypt 國旗" loading="lazy"><span>埃及</span></div>
+              </div>
+              <div class="meta">小組G · Lumen Field, Seattle, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組H" data-date="2026-06-16">
+              <time class="time" datetime="2026-06-16T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/sa.png" alt="Saudi Arabia 國旗" loading="lazy"><span>沙烏地阿拉伯</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/uy.png" alt="Uruguay 國旗" loading="lazy"><span>烏拉圭</span></div>
+              </div>
+              <div class="meta">小組H · Hard Rock Stadium (Miami Gardens), Miami, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組G" data-date="2026-06-16">
+              <time class="time" datetime="2026-06-16T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ir.png" alt="Iran 國旗" loading="lazy"><span>伊朗</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/nz.png" alt="New Zealand 國旗" loading="lazy"><span>紐西蘭</span></div>
+              </div>
+              <div class="meta">小組G · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/17（三）</div>
+
+            <article class="match-card" data-stage="小組I" data-date="2026-06-17">
+              <time class="time" datetime="2026-06-17T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/fr.png" alt="France 國旗" loading="lazy"><span>法國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/sn.png" alt="Senegal 國旗" loading="lazy"><span>塞內加爾</span></div>
+              </div>
+              <div class="meta">小組I · MetLife Stadium (East Rutherford), New Jersey, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組I" data-date="2026-06-17">
+              <time class="time" datetime="2026-06-17T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/iq.png" alt="Iraq 國旗" loading="lazy"><span>伊拉克</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/no.png" alt="Norway 國旗" loading="lazy"><span>挪威</span></div>
+              </div>
+              <div class="meta">小組I · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組J" data-date="2026-06-17">
+              <time class="time" datetime="2026-06-17T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ar.png" alt="Argentina 國旗" loading="lazy"><span>阿根廷</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/dz.png" alt="Algeria 國旗" loading="lazy"><span>阿爾及利亞</span></div>
+              </div>
+              <div class="meta">小組J · Arrowhead Stadium, Kansas City, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組J" data-date="2026-06-17">
+              <time class="time" datetime="2026-06-17T12:00:00+08:00">12:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/at.png" alt="Austria 國旗" loading="lazy"><span>奧地利</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/jo.png" alt="Jordan 國旗" loading="lazy"><span>約旦</span></div>
+              </div>
+              <div class="meta">小組J · Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/18（四）</div>
+
+            <article class="match-card" data-stage="小組K" data-date="2026-06-18">
+              <time class="time" datetime="2026-06-18T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/pt.png" alt="Portugal 國旗" loading="lazy"><span>葡萄牙</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cd.png" alt="DR Congo 國旗" loading="lazy"><span>剛果民主共和國</span></div>
+              </div>
+              <div class="meta">小組K · NRG Stadium, Houston, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組L" data-date="2026-06-18">
+              <time class="time" datetime="2026-06-18T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gb-eng.png" alt="England 國旗" loading="lazy"><span>英格蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/hr.png" alt="Croatia 國旗" loading="lazy"><span>克羅埃西亞</span></div>
+              </div>
+              <div class="meta">小組L · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組L" data-date="2026-06-18">
+              <time class="time" datetime="2026-06-18T07:00:00+08:00">07:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gh.png" alt="Ghana 國旗" loading="lazy"><span>迦納</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/pa.png" alt="Panama 國旗" loading="lazy"><span>巴拿馬</span></div>
+              </div>
+              <div class="meta">小組L · BMO Field, Toronto, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組K" data-date="2026-06-18">
+              <time class="time" datetime="2026-06-18T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/uz.png" alt="Uzbekistan 國旗" loading="lazy"><span>烏茲別克</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/co.png" alt="Colombia 國旗" loading="lazy"><span>哥倫比亞</span></div>
+              </div>
+              <div class="meta">小組K · Estadio Azteca (Mexico City Stadium), Mexico City, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/06/19（五）</div>
+
+            <article class="match-card" data-stage="小組A" data-date="2026-06-19">
+              <time class="time" datetime="2026-06-19T00:00:00+08:00">00:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cz.png" alt="Czechia 國旗" loading="lazy"><span>捷克</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/za.png" alt="South Africa 國旗" loading="lazy"><span>南非</span></div>
+              </div>
+              <div class="meta">小組A · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組B" data-date="2026-06-19">
+              <time class="time" datetime="2026-06-19T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ch.png" alt="Switzerland 國旗" loading="lazy"><span>瑞士</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ba.png" alt="Bosnia &amp; Herzegovina 國旗" loading="lazy"><span>波士尼亞與赫塞哥維納</span></div>
+              </div>
+              <div class="meta">小組B · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組B" data-date="2026-06-19">
+              <time class="time" datetime="2026-06-19T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ca.png" alt="Canada 國旗" loading="lazy"><span>加拿大</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/qa.png" alt="Qatar 國旗" loading="lazy"><span>卡達</span></div>
+              </div>
+              <div class="meta">小組B · BC Place, Vancouver, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組A" data-date="2026-06-19">
+              <time class="time" datetime="2026-06-19T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/mx.png" alt="Mexico 國旗" loading="lazy"><span>墨西哥</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/kr.png" alt="South Korea 國旗" loading="lazy"><span>南韓</span></div>
+              </div>
+              <div class="meta">小組A · Estadio Akron (Guadalajara Stadium), Zapopan, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/06/20（六）</div>
+
+            <article class="match-card" data-stage="小組D" data-date="2026-06-20">
+              <time class="time" datetime="2026-06-20T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/us.png" alt="USA 國旗" loading="lazy"><span>美國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/au.png" alt="Australia 國旗" loading="lazy"><span>澳洲</span></div>
+              </div>
+              <div class="meta">小組D · Lumen Field, Seattle, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組C" data-date="2026-06-20">
+              <time class="time" datetime="2026-06-20T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gb-sct.png" alt="Scotland 國旗" loading="lazy"><span>蘇格蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ma.png" alt="Morocco 國旗" loading="lazy"><span>摩洛哥</span></div>
+              </div>
+              <div class="meta">小組C · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組C" data-date="2026-06-20">
+              <time class="time" datetime="2026-06-20T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/br.png" alt="Brazil 國旗" loading="lazy"><span>巴西</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ht.png" alt="Haiti 國旗" loading="lazy"><span>海地</span></div>
+              </div>
+              <div class="meta">小組C · Lincoln Financial Field, Philadelphia, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組D" data-date="2026-06-20">
+              <time class="time" datetime="2026-06-20T12:00:00+08:00">12:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/tr.png" alt="Turkey 國旗" loading="lazy"><span>土耳其</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/py.png" alt="Paraguay 國旗" loading="lazy"><span>巴拉圭</span></div>
+              </div>
+              <div class="meta">小組D · Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/21（日）</div>
+
+            <article class="match-card" data-stage="小組F" data-date="2026-06-21">
+              <time class="time" datetime="2026-06-21T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/nl.png" alt="Netherlands 國旗" loading="lazy"><span>荷蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/se.png" alt="Sweden 國旗" loading="lazy"><span>瑞典</span></div>
+              </div>
+              <div class="meta">小組F · NRG Stadium, Houston, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組E" data-date="2026-06-21">
+              <time class="time" datetime="2026-06-21T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/de.png" alt="Germany 國旗" loading="lazy"><span>德國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ci.png" alt="Ivory Coast 國旗" loading="lazy"><span>象牙海岸</span></div>
+              </div>
+              <div class="meta">小組E · BMO Field, Toronto, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組E" data-date="2026-06-21">
+              <time class="time" datetime="2026-06-21T08:00:00+08:00">08:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ec.png" alt="Ecuador 國旗" loading="lazy"><span>厄瓜多</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cw.png" alt="Curacao 國旗" loading="lazy"><span>庫拉索</span></div>
+              </div>
+              <div class="meta">小組E · Arrowhead Stadium, Kansas City, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組F" data-date="2026-06-21">
+              <time class="time" datetime="2026-06-21T12:00:00+08:00">12:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/tn.png" alt="Tunisia 國旗" loading="lazy"><span>突尼西亞</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/jp.png" alt="Japan 國旗" loading="lazy"><span>日本</span></div>
+              </div>
+              <div class="meta">小組F · Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/06/22（一）</div>
+
+            <article class="match-card" data-stage="小組H" data-date="2026-06-22">
+              <time class="time" datetime="2026-06-22T00:00:00+08:00">00:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/es.png" alt="Spain 國旗" loading="lazy"><span>西班牙</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/sa.png" alt="Saudi Arabia 國旗" loading="lazy"><span>沙烏地阿拉伯</span></div>
+              </div>
+              <div class="meta">小組H · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組G" data-date="2026-06-22">
+              <time class="time" datetime="2026-06-22T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/be.png" alt="Belgium 國旗" loading="lazy"><span>比利時</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ir.png" alt="Iran 國旗" loading="lazy"><span>伊朗</span></div>
+              </div>
+              <div class="meta">小組G · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組H" data-date="2026-06-22">
+              <time class="time" datetime="2026-06-22T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/uy.png" alt="Uruguay 國旗" loading="lazy"><span>烏拉圭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cv.png" alt="Cape Verde 國旗" loading="lazy"><span>維德角</span></div>
+              </div>
+              <div class="meta">小組H · Hard Rock Stadium (Miami Gardens), Miami, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組G" data-date="2026-06-22">
+              <time class="time" datetime="2026-06-22T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/nz.png" alt="New Zealand 國旗" loading="lazy"><span>紐西蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/eg.png" alt="Egypt 國旗" loading="lazy"><span>埃及</span></div>
+              </div>
+              <div class="meta">小組G · BC Place, Vancouver, Canada</div>
+            </article>
+            
+<div class="date-row">2026/06/23（二）</div>
+
+            <article class="match-card" data-stage="小組J" data-date="2026-06-23">
+              <time class="time" datetime="2026-06-23T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ar.png" alt="Argentina 國旗" loading="lazy"><span>阿根廷</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/at.png" alt="Austria 國旗" loading="lazy"><span>奧地利</span></div>
+              </div>
+              <div class="meta">小組J · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組I" data-date="2026-06-23">
+              <time class="time" datetime="2026-06-23T05:00:00+08:00">05:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/fr.png" alt="France 國旗" loading="lazy"><span>法國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/iq.png" alt="Iraq 國旗" loading="lazy"><span>伊拉克</span></div>
+              </div>
+              <div class="meta">小組I · Lincoln Financial Field, Philadelphia, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組I" data-date="2026-06-23">
+              <time class="time" datetime="2026-06-23T08:00:00+08:00">08:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/no.png" alt="Norway 國旗" loading="lazy"><span>挪威</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/sn.png" alt="Senegal 國旗" loading="lazy"><span>塞內加爾</span></div>
+              </div>
+              <div class="meta">小組I · BMO Field, Toronto, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組J" data-date="2026-06-23">
+              <time class="time" datetime="2026-06-23T11:00:00+08:00">11:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/jo.png" alt="Jordan 國旗" loading="lazy"><span>約旦</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/dz.png" alt="Algeria 國旗" loading="lazy"><span>阿爾及利亞</span></div>
+              </div>
+              <div class="meta">小組J · Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/24（三）</div>
+
+            <article class="match-card" data-stage="小組K" data-date="2026-06-24">
+              <time class="time" datetime="2026-06-24T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/pt.png" alt="Portugal 國旗" loading="lazy"><span>葡萄牙</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/uz.png" alt="Uzbekistan 國旗" loading="lazy"><span>烏茲別克</span></div>
+              </div>
+              <div class="meta">小組K · NRG Stadium, Houston, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組L" data-date="2026-06-24">
+              <time class="time" datetime="2026-06-24T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gb-eng.png" alt="England 國旗" loading="lazy"><span>英格蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gh.png" alt="Ghana 國旗" loading="lazy"><span>迦納</span></div>
+              </div>
+              <div class="meta">小組L · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組L" data-date="2026-06-24">
+              <time class="time" datetime="2026-06-24T07:00:00+08:00">07:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/pa.png" alt="Panama 國旗" loading="lazy"><span>巴拿馬</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/hr.png" alt="Croatia 國旗" loading="lazy"><span>克羅埃西亞</span></div>
+              </div>
+              <div class="meta">小組L · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組K" data-date="2026-06-24">
+              <time class="time" datetime="2026-06-24T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/co.png" alt="Colombia 國旗" loading="lazy"><span>哥倫比亞</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cd.png" alt="DR Congo 國旗" loading="lazy"><span>剛果民主共和國</span></div>
+              </div>
+              <div class="meta">小組K · Estadio Akron (Guadalajara Stadium), Zapopan, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/06/25（四）</div>
+
+            <article class="match-card" data-stage="小組B" data-date="2026-06-25">
+              <time class="time" datetime="2026-06-25T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ba.png" alt="Bosnia &amp; Herzegovina 國旗" loading="lazy"><span>波士尼亞與赫塞哥維納</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/qa.png" alt="Qatar 國旗" loading="lazy"><span>卡達</span></div>
+              </div>
+              <div class="meta">小組B · Lumen Field, Seattle, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組B" data-date="2026-06-25">
+              <time class="time" datetime="2026-06-25T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ch.png" alt="Switzerland 國旗" loading="lazy"><span>瑞士</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ca.png" alt="Canada 國旗" loading="lazy"><span>加拿大</span></div>
+              </div>
+              <div class="meta">小組B · BC Place, Vancouver, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組C" data-date="2026-06-25">
+              <time class="time" datetime="2026-06-25T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gb-sct.png" alt="Scotland 國旗" loading="lazy"><span>蘇格蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/br.png" alt="Brazil 國旗" loading="lazy"><span>巴西</span></div>
+              </div>
+              <div class="meta">小組C · Hard Rock Stadium (Miami Gardens), Miami, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組C" data-date="2026-06-25">
+              <time class="time" datetime="2026-06-25T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ma.png" alt="Morocco 國旗" loading="lazy"><span>摩洛哥</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ht.png" alt="Haiti 國旗" loading="lazy"><span>海地</span></div>
+              </div>
+              <div class="meta">小組C · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組A" data-date="2026-06-25">
+              <time class="time" datetime="2026-06-25T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/za.png" alt="South Africa 國旗" loading="lazy"><span>南非</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/kr.png" alt="South Korea 國旗" loading="lazy"><span>南韓</span></div>
+              </div>
+              <div class="meta">小組A · Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組A" data-date="2026-06-25">
+              <time class="time" datetime="2026-06-25T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cz.png" alt="Czechia 國旗" loading="lazy"><span>捷克</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/mx.png" alt="Mexico 國旗" loading="lazy"><span>墨西哥</span></div>
+              </div>
+              <div class="meta">小組A · Estadio Azteca (Mexico City Stadium), Mexico City, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/06/26（五）</div>
+
+            <article class="match-card" data-stage="小組E" data-date="2026-06-26">
+              <time class="time" datetime="2026-06-26T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cw.png" alt="Curacao 國旗" loading="lazy"><span>庫拉索</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ci.png" alt="Ivory Coast 國旗" loading="lazy"><span>象牙海岸</span></div>
+              </div>
+              <div class="meta">小組E · Lincoln Financial Field, Philadelphia, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組E" data-date="2026-06-26">
+              <time class="time" datetime="2026-06-26T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ec.png" alt="Ecuador 國旗" loading="lazy"><span>厄瓜多</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/de.png" alt="Germany 國旗" loading="lazy"><span>德國</span></div>
+              </div>
+              <div class="meta">小組E · MetLife Stadium (East Rutherford), New Jersey, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組F" data-date="2026-06-26">
+              <time class="time" datetime="2026-06-26T07:00:00+08:00">07:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/jp.png" alt="Japan 國旗" loading="lazy"><span>日本</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/se.png" alt="Sweden 國旗" loading="lazy"><span>瑞典</span></div>
+              </div>
+              <div class="meta">小組F · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組F" data-date="2026-06-26">
+              <time class="time" datetime="2026-06-26T07:00:00+08:00">07:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/tn.png" alt="Tunisia 國旗" loading="lazy"><span>突尼西亞</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/nl.png" alt="Netherlands 國旗" loading="lazy"><span>荷蘭</span></div>
+              </div>
+              <div class="meta">小組F · Arrowhead Stadium, Kansas City, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組D" data-date="2026-06-26">
+              <time class="time" datetime="2026-06-26T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/py.png" alt="Paraguay 國旗" loading="lazy"><span>巴拉圭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/au.png" alt="Australia 國旗" loading="lazy"><span>澳洲</span></div>
+              </div>
+              <div class="meta">小組D · Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組D" data-date="2026-06-26">
+              <time class="time" datetime="2026-06-26T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/tr.png" alt="Turkey 國旗" loading="lazy"><span>土耳其</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/us.png" alt="USA 國旗" loading="lazy"><span>美國</span></div>
+              </div>
+              <div class="meta">小組D · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/27（六）</div>
+
+            <article class="match-card" data-stage="小組I" data-date="2026-06-27">
+              <time class="time" datetime="2026-06-27T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/sn.png" alt="Senegal 國旗" loading="lazy"><span>塞內加爾</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/iq.png" alt="Iraq 國旗" loading="lazy"><span>伊拉克</span></div>
+              </div>
+              <div class="meta">小組I · BMO Field, Toronto, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組I" data-date="2026-06-27">
+              <time class="time" datetime="2026-06-27T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/no.png" alt="Norway 國旗" loading="lazy"><span>挪威</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/fr.png" alt="France 國旗" loading="lazy"><span>法國</span></div>
+              </div>
+              <div class="meta">小組I · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組H" data-date="2026-06-27">
+              <time class="time" datetime="2026-06-27T08:00:00+08:00">08:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cv.png" alt="Cape Verde 國旗" loading="lazy"><span>維德角</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/sa.png" alt="Saudi Arabia 國旗" loading="lazy"><span>沙烏地阿拉伯</span></div>
+              </div>
+              <div class="meta">小組H · NRG Stadium, Houston, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組H" data-date="2026-06-27">
+              <time class="time" datetime="2026-06-27T08:00:00+08:00">08:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/uy.png" alt="Uruguay 國旗" loading="lazy"><span>烏拉圭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/es.png" alt="Spain 國旗" loading="lazy"><span>西班牙</span></div>
+              </div>
+              <div class="meta">小組H · Estadio Akron (Guadalajara Stadium), Zapopan, Mexico</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組G" data-date="2026-06-27">
+              <time class="time" datetime="2026-06-27T11:00:00+08:00">11:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/nz.png" alt="New Zealand 國旗" loading="lazy"><span>紐西蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/be.png" alt="Belgium 國旗" loading="lazy"><span>比利時</span></div>
+              </div>
+              <div class="meta">小組G · BC Place, Vancouver, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組G" data-date="2026-06-27">
+              <time class="time" datetime="2026-06-27T11:00:00+08:00">11:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/eg.png" alt="Egypt 國旗" loading="lazy"><span>埃及</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ir.png" alt="Iran 國旗" loading="lazy"><span>伊朗</span></div>
+              </div>
+              <div class="meta">小組G · Lumen Field, Seattle, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/28（日）</div>
+
+            <article class="match-card" data-stage="小組L" data-date="2026-06-28">
+              <time class="time" datetime="2026-06-28T05:00:00+08:00">05:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/hr.png" alt="Croatia 國旗" loading="lazy"><span>克羅埃西亞</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gh.png" alt="Ghana 國旗" loading="lazy"><span>迦納</span></div>
+              </div>
+              <div class="meta">小組L · Lincoln Financial Field, Philadelphia, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組L" data-date="2026-06-28">
+              <time class="time" datetime="2026-06-28T05:00:00+08:00">05:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/pa.png" alt="Panama 國旗" loading="lazy"><span>巴拿馬</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gb-eng.png" alt="England 國旗" loading="lazy"><span>英格蘭</span></div>
+              </div>
+              <div class="meta">小組L · MetLife Stadium (East Rutherford), New Jersey, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組K" data-date="2026-06-28">
+              <time class="time" datetime="2026-06-28T07:30:00+08:00">07:30</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/co.png" alt="Colombia 國旗" loading="lazy"><span>哥倫比亞</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/pt.png" alt="Portugal 國旗" loading="lazy"><span>葡萄牙</span></div>
+              </div>
+              <div class="meta">小組K · Hard Rock Stadium (Miami Gardens), Miami, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組K" data-date="2026-06-28">
+              <time class="time" datetime="2026-06-28T07:30:00+08:00">07:30</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cd.png" alt="DR Congo 國旗" loading="lazy"><span>剛果民主共和國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/uz.png" alt="Uzbekistan 國旗" loading="lazy"><span>烏茲別克</span></div>
+              </div>
+              <div class="meta">小組K · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組J" data-date="2026-06-28">
+              <time class="time" datetime="2026-06-28T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/jo.png" alt="Jordan 國旗" loading="lazy"><span>約旦</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ar.png" alt="Argentina 國旗" loading="lazy"><span>阿根廷</span></div>
+              </div>
+              <div class="meta">小組J · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="小組J" data-date="2026-06-28">
+              <time class="time" datetime="2026-06-28T10:00:00+08:00">10:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/dz.png" alt="Algeria 國旗" loading="lazy"><span>阿爾及利亞</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/at.png" alt="Austria 國旗" loading="lazy"><span>奧地利</span></div>
+              </div>
+              <div class="meta">小組J · Arrowhead Stadium, Kansas City, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/29（一）</div>
+
+            <article class="match-card" data-stage="32 強" data-date="2026-06-29">
+              <time class="time" datetime="2026-06-29T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/za.png" alt="South Africa 國旗" loading="lazy"><span>南非</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ca.png" alt="Canada 國旗" loading="lazy"><span>加拿大</span></div>
+              </div>
+              <div class="meta">M73 · 32 強 · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+<div class="date-row">2026/06/30（二）</div>
+
+            <article class="match-card" data-stage="32 強" data-date="2026-06-30">
+              <time class="time" datetime="2026-06-30T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/br.png" alt="Brazil 國旗" loading="lazy"><span>巴西</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/jp.png" alt="Japan 國旗" loading="lazy"><span>日本</span></div>
+              </div>
+              <div class="meta">M76 · 32 強 · NRG Stadium, Houston, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-06-30">
+              <time class="time" datetime="2026-06-30T04:30:00+08:00">04:30</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/de.png" alt="Germany 國旗" loading="lazy"><span>德國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/py.png" alt="Paraguay 國旗" loading="lazy"><span>巴拉圭</span></div>
+              </div>
+              <div class="meta">M74 · 32 強 · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-06-30">
+              <time class="time" datetime="2026-06-30T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/nl.png" alt="Netherlands 國旗" loading="lazy"><span>荷蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ma.png" alt="Morocco 國旗" loading="lazy"><span>摩洛哥</span></div>
+              </div>
+              <div class="meta">M75 · 32 強 · Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/07/01（三）</div>
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-01">
+              <time class="time" datetime="2026-07-01T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ci.png" alt="Ivory Coast 國旗" loading="lazy"><span>象牙海岸</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/no.png" alt="Norway 國旗" loading="lazy"><span>挪威</span></div>
+              </div>
+              <div class="meta">M78 · 32 強 · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-01">
+              <time class="time" datetime="2026-07-01T05:00:00+08:00">05:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/fr.png" alt="France 國旗" loading="lazy"><span>法國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/se.png" alt="Sweden 國旗" loading="lazy"><span>瑞典</span></div>
+              </div>
+              <div class="meta">M77 · 32 強 · MetLife Stadium (East Rutherford), New Jersey, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-01">
+              <time class="time" datetime="2026-07-01T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/mx.png" alt="Mexico 國旗" loading="lazy"><span>墨西哥</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ec.png" alt="Ecuador 國旗" loading="lazy"><span>厄瓜多</span></div>
+              </div>
+              <div class="meta">M79 · 32 強 · Estadio Azteca (Mexico City Stadium), Mexico City, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/07/02（四）</div>
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-02">
+              <time class="time" datetime="2026-07-02T00:00:00+08:00">00:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gb-eng.png" alt="England 國旗" loading="lazy"><span>英格蘭</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cd.png" alt="DR Congo 國旗" loading="lazy"><span>剛果民主共和國</span></div>
+              </div>
+              <div class="meta">M80 · 32 強 · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-02">
+              <time class="time" datetime="2026-07-02T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/be.png" alt="Belgium 國旗" loading="lazy"><span>比利時</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/sn.png" alt="Senegal 國旗" loading="lazy"><span>塞內加爾</span></div>
+              </div>
+              <div class="meta">M82 · 32 強 · Lumen Field, Seattle, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-02">
+              <time class="time" datetime="2026-07-02T08:00:00+08:00">08:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/us.png" alt="USA 國旗" loading="lazy"><span>美國</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ba.png" alt="Bosnia &amp; Herzegovina 國旗" loading="lazy"><span>波士尼亞與赫塞哥維納</span></div>
+              </div>
+              <div class="meta">M81 · 32 強 · Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/03（五）</div>
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-03">
+              <time class="time" datetime="2026-07-03T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/es.png" alt="Spain 國旗" loading="lazy"><span>西班牙</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>待定</span></div>
+              </div>
+              <div class="meta">M84 · 32 強 · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-03">
+              <time class="time" datetime="2026-07-03T07:00:00+08:00">07:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/pt.png" alt="Portugal 國旗" loading="lazy"><span>葡萄牙</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/hr.png" alt="Croatia 國旗" loading="lazy"><span>克羅埃西亞</span></div>
+              </div>
+              <div class="meta">M83 · 32 強 · BMO Field, Toronto, Canada</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-03">
+              <time class="time" datetime="2026-07-03T11:00:00+08:00">11:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ch.png" alt="Switzerland 國旗" loading="lazy"><span>瑞士</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>待定</span></div>
+              </div>
+              <div class="meta">M85 · 32 強 · BC Place, Vancouver, Canada</div>
+            </article>
+            
+<div class="date-row">2026/07/04（六）</div>
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-04">
+              <time class="time" datetime="2026-07-04T02:00:00+08:00">02:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/au.png" alt="Australia 國旗" loading="lazy"><span>澳洲</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/eg.png" alt="Egypt 國旗" loading="lazy"><span>埃及</span></div>
+              </div>
+              <div class="meta">M88 · 32 強 · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-04">
+              <time class="time" datetime="2026-07-04T06:00:00+08:00">06:00</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/ar.png" alt="Argentina 國旗" loading="lazy"><span>阿根廷</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/cv.png" alt="Cape Verde 國旗" loading="lazy"><span>維德角</span></div>
+              </div>
+              <div class="meta">M86 · 32 強 · Hard Rock Stadium (Miami Gardens), Miami, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="32 強" data-date="2026-07-04">
+              <time class="time" datetime="2026-07-04T09:30:00+08:00">09:30</time>
+              <div class="matchup">
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/co.png" alt="Colombia 國旗" loading="lazy"><span>哥倫比亞</span></div>
+                <div class="versus">比</div>
+                <div class="team"><img class="flag" src="https://flagcdn.com/w80/gh.png" alt="Ghana 國旗" loading="lazy"><span>迦納</span></div>
+              </div>
+              <div class="meta">M87 · 32 強 · Arrowhead Stadium, Kansas City, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/05（日）</div>
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-05">
+              <time class="time" datetime="2026-07-05T01:00:00+08:00">01:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 73 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 75 場勝方</span></div>
+              </div>
+              <div class="meta">M90 · 16 強 · NRG Stadium, Houston, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-05">
+              <time class="time" datetime="2026-07-05T05:00:00+08:00">05:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 74 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 77 場勝方</span></div>
+              </div>
+              <div class="meta">M89 · 16 強 · Lincoln Financial Field, Philadelphia, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/06（一）</div>
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-06">
+              <time class="time" datetime="2026-07-06T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 76 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 78 場勝方</span></div>
+              </div>
+              <div class="meta">M91 · 16 強 · MetLife Stadium (East Rutherford), New Jersey, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-06">
+              <time class="time" datetime="2026-07-06T08:00:00+08:00">08:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 79 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 80 場勝方</span></div>
+              </div>
+              <div class="meta">M92 · 16 強 · Estadio Azteca (Mexico City Stadium), Mexico City, Mexico</div>
+            </article>
+            
+<div class="date-row">2026/07/07（二）</div>
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-07">
+              <time class="time" datetime="2026-07-07T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 83 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 84 場勝方</span></div>
+              </div>
+              <div class="meta">M93 · 16 強 · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-07">
+              <time class="time" datetime="2026-07-07T08:00:00+08:00">08:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 81 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 82 場勝方</span></div>
+              </div>
+              <div class="meta">M94 · 16 強 · Lumen Field, Seattle, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/08（三）</div>
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-08">
+              <time class="time" datetime="2026-07-08T00:00:00+08:00">00:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 86 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 88 場勝方</span></div>
+              </div>
+              <div class="meta">M95 · 16 強 · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="16 強" data-date="2026-07-08">
+              <time class="time" datetime="2026-07-08T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 85 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 87 場勝方</span></div>
+              </div>
+              <div class="meta">M96 · 16 強 · BC Place, Vancouver, Canada</div>
+            </article>
+            
+<div class="date-row">2026/07/10（五）</div>
+
+            <article class="match-card" data-stage="八強" data-date="2026-07-10">
+              <time class="time" datetime="2026-07-10T04:00:00+08:00">04:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 89 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 90 場勝方</span></div>
+              </div>
+              <div class="meta">M97 · 八強 · Gillette Stadium (Foxborough), Foxborough, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/11（六）</div>
+
+            <article class="match-card" data-stage="八強" data-date="2026-07-11">
+              <time class="time" datetime="2026-07-11T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 93 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 94 場勝方</span></div>
+              </div>
+              <div class="meta">M98 · 八強 · SoFi Stadium (Inglewood), Los Angeles, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/12（日）</div>
+
+            <article class="match-card" data-stage="八強" data-date="2026-07-12">
+              <time class="time" datetime="2026-07-12T05:00:00+08:00">05:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 91 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 92 場勝方</span></div>
+              </div>
+              <div class="meta">M99 · 八強 · Hard Rock Stadium (Miami Gardens), Miami, USA</div>
+            </article>
+            
+
+            <article class="match-card" data-stage="八強" data-date="2026-07-12">
+              <time class="time" datetime="2026-07-12T09:00:00+08:00">09:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 95 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 96 場勝方</span></div>
+              </div>
+              <div class="meta">M100 · 八強 · Arrowhead Stadium, Kansas City, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/15（三）</div>
+
+            <article class="match-card" data-stage="四強" data-date="2026-07-15">
+              <time class="time" datetime="2026-07-15T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 97 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 98 場勝方</span></div>
+              </div>
+              <div class="meta">M101 · 四強 · AT&amp;T Stadium (Arlington), Arlington, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/16（四）</div>
+
+            <article class="match-card" data-stage="四強" data-date="2026-07-16">
+              <time class="time" datetime="2026-07-16T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 99 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 100 場勝方</span></div>
+              </div>
+              <div class="meta">M102 · 四強 · Mercedes-Benz Stadium, Atlanta, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/19（日）</div>
+
+            <article class="match-card" data-stage="季軍戰" data-date="2026-07-19">
+              <time class="time" datetime="2026-07-19T05:00:00+08:00">05:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 101 場敗方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 102 場敗方</span></div>
+              </div>
+              <div class="meta">M103 · 季軍戰 · Hard Rock Stadium (Miami Gardens), Miami, USA</div>
+            </article>
+            
+<div class="date-row">2026/07/20（一）</div>
+
+            <article class="match-card" data-stage="決賽" data-date="2026-07-20">
+              <time class="time" datetime="2026-07-20T03:00:00+08:00">03:00</time>
+              <div class="matchup">
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 101 場勝方</span></div>
+                <div class="versus">比</div>
+                <div class="team"><span class="flag-placeholder" aria-hidden="true"></span><span>第 102 場勝方</span></div>
+              </div>
+              <div class="meta">M104 · 決賽 · MetLife Stadium (East Rutherford), New Jersey, USA</div>
+            </article>
+            
     </section>
-
-    <table>
-      <tr>
-        <th>匯入方式</th>
-        <td>Google 行事曆左側「其他日曆」旁的 + →「透過網址」→ 貼上上方 iCal 網址。</td>
-      </tr>
-      <tr>
-        <th>更新方式</th>
-        <td>之後只要更新這個 GitHub Pages 上的 google-calendar.ics，Google 會定期同步。</td>
-      </tr>
-      <tr>
-        <th>刪除方式</th>
-        <td>取消訂閱這個其他日曆即可，不會像匯入 .ics 一樣散落在主行事曆。</td>
-      </tr>
-    </table>
+    <div id="empty" class="empty">沒有符合條件的比賽</div>
   </main>
-
+  <script id="match-data" type="application/json">[{&quot;start&quot;: &quot;2026-06-12T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組A&quot;, &quot;left&quot;: &quot;Mexico&quot;, &quot;right&quot;: &quot;South Africa&quot;, &quot;leftDisplay&quot;: &quot;墨西哥&quot;, &quot;rightDisplay&quot;: &quot;南非&quot;, &quot;location&quot;: &quot;Estadio Azteca (Mexico City Stadium), Mexico City, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-12T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組A&quot;, &quot;left&quot;: &quot;South Korea&quot;, &quot;right&quot;: &quot;Czechia&quot;, &quot;leftDisplay&quot;: &quot;南韓&quot;, &quot;rightDisplay&quot;: &quot;捷克&quot;, &quot;location&quot;: &quot;Estadio Akron (Guadalajara Stadium), Zapopan, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-13T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組B&quot;, &quot;left&quot;: &quot;Canada&quot;, &quot;right&quot;: &quot;Bosnia &amp; Herzegovina&quot;, &quot;leftDisplay&quot;: &quot;加拿大&quot;, &quot;rightDisplay&quot;: &quot;波士尼亞與赫塞哥維納&quot;, &quot;location&quot;: &quot;BMO Field, Toronto, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-13T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組D&quot;, &quot;left&quot;: &quot;USA&quot;, &quot;right&quot;: &quot;Paraguay&quot;, &quot;leftDisplay&quot;: &quot;美國&quot;, &quot;rightDisplay&quot;: &quot;巴拉圭&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-14T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組B&quot;, &quot;left&quot;: &quot;Qatar&quot;, &quot;right&quot;: &quot;Switzerland&quot;, &quot;leftDisplay&quot;: &quot;卡達&quot;, &quot;rightDisplay&quot;: &quot;瑞士&quot;, &quot;location&quot;: &quot;Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-14T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組C&quot;, &quot;left&quot;: &quot;Brazil&quot;, &quot;right&quot;: &quot;Morocco&quot;, &quot;leftDisplay&quot;: &quot;巴西&quot;, &quot;rightDisplay&quot;: &quot;摩洛哥&quot;, &quot;location&quot;: &quot;MetLife Stadium (East Rutherford), New Jersey, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-14T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組C&quot;, &quot;left&quot;: &quot;Haiti&quot;, &quot;right&quot;: &quot;Scotland&quot;, &quot;leftDisplay&quot;: &quot;海地&quot;, &quot;rightDisplay&quot;: &quot;蘇格蘭&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-14T12:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組D&quot;, &quot;left&quot;: &quot;Australia&quot;, &quot;right&quot;: &quot;Turkey&quot;, &quot;leftDisplay&quot;: &quot;澳洲&quot;, &quot;rightDisplay&quot;: &quot;土耳其&quot;, &quot;location&quot;: &quot;BC Place, Vancouver, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-15T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組E&quot;, &quot;left&quot;: &quot;Germany&quot;, &quot;right&quot;: &quot;Curacao&quot;, &quot;leftDisplay&quot;: &quot;德國&quot;, &quot;rightDisplay&quot;: &quot;庫拉索&quot;, &quot;location&quot;: &quot;NRG Stadium, Houston, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-15T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組F&quot;, &quot;left&quot;: &quot;Netherlands&quot;, &quot;right&quot;: &quot;Japan&quot;, &quot;leftDisplay&quot;: &quot;荷蘭&quot;, &quot;rightDisplay&quot;: &quot;日本&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-15T07:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組E&quot;, &quot;left&quot;: &quot;Ivory Coast&quot;, &quot;right&quot;: &quot;Ecuador&quot;, &quot;leftDisplay&quot;: &quot;象牙海岸&quot;, &quot;rightDisplay&quot;: &quot;厄瓜多&quot;, &quot;location&quot;: &quot;Lincoln Financial Field, Philadelphia, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-15T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組F&quot;, &quot;left&quot;: &quot;Sweden&quot;, &quot;right&quot;: &quot;Tunisia&quot;, &quot;leftDisplay&quot;: &quot;瑞典&quot;, &quot;rightDisplay&quot;: &quot;突尼西亞&quot;, &quot;location&quot;: &quot;Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-16T00:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組H&quot;, &quot;left&quot;: &quot;Spain&quot;, &quot;right&quot;: &quot;Cape Verde&quot;, &quot;leftDisplay&quot;: &quot;西班牙&quot;, &quot;rightDisplay&quot;: &quot;維德角&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-16T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組G&quot;, &quot;left&quot;: &quot;Belgium&quot;, &quot;right&quot;: &quot;Egypt&quot;, &quot;leftDisplay&quot;: &quot;比利時&quot;, &quot;rightDisplay&quot;: &quot;埃及&quot;, &quot;location&quot;: &quot;Lumen Field, Seattle, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-16T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組H&quot;, &quot;left&quot;: &quot;Saudi Arabia&quot;, &quot;right&quot;: &quot;Uruguay&quot;, &quot;leftDisplay&quot;: &quot;沙烏地阿拉伯&quot;, &quot;rightDisplay&quot;: &quot;烏拉圭&quot;, &quot;location&quot;: &quot;Hard Rock Stadium (Miami Gardens), Miami, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-16T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組G&quot;, &quot;left&quot;: &quot;Iran&quot;, &quot;right&quot;: &quot;New Zealand&quot;, &quot;leftDisplay&quot;: &quot;伊朗&quot;, &quot;rightDisplay&quot;: &quot;紐西蘭&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-17T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組I&quot;, &quot;left&quot;: &quot;France&quot;, &quot;right&quot;: &quot;Senegal&quot;, &quot;leftDisplay&quot;: &quot;法國&quot;, &quot;rightDisplay&quot;: &quot;塞內加爾&quot;, &quot;location&quot;: &quot;MetLife Stadium (East Rutherford), New Jersey, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-17T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組I&quot;, &quot;left&quot;: &quot;Iraq&quot;, &quot;right&quot;: &quot;Norway&quot;, &quot;leftDisplay&quot;: &quot;伊拉克&quot;, &quot;rightDisplay&quot;: &quot;挪威&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-17T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組J&quot;, &quot;left&quot;: &quot;Argentina&quot;, &quot;right&quot;: &quot;Algeria&quot;, &quot;leftDisplay&quot;: &quot;阿根廷&quot;, &quot;rightDisplay&quot;: &quot;阿爾及利亞&quot;, &quot;location&quot;: &quot;Arrowhead Stadium, Kansas City, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-17T12:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組J&quot;, &quot;left&quot;: &quot;Austria&quot;, &quot;right&quot;: &quot;Jordan&quot;, &quot;leftDisplay&quot;: &quot;奧地利&quot;, &quot;rightDisplay&quot;: &quot;約旦&quot;, &quot;location&quot;: &quot;Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-18T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組K&quot;, &quot;left&quot;: &quot;Portugal&quot;, &quot;right&quot;: &quot;DR Congo&quot;, &quot;leftDisplay&quot;: &quot;葡萄牙&quot;, &quot;rightDisplay&quot;: &quot;剛果民主共和國&quot;, &quot;location&quot;: &quot;NRG Stadium, Houston, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-18T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組L&quot;, &quot;left&quot;: &quot;England&quot;, &quot;right&quot;: &quot;Croatia&quot;, &quot;leftDisplay&quot;: &quot;英格蘭&quot;, &quot;rightDisplay&quot;: &quot;克羅埃西亞&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-18T07:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組L&quot;, &quot;left&quot;: &quot;Ghana&quot;, &quot;right&quot;: &quot;Panama&quot;, &quot;leftDisplay&quot;: &quot;迦納&quot;, &quot;rightDisplay&quot;: &quot;巴拿馬&quot;, &quot;location&quot;: &quot;BMO Field, Toronto, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-18T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組K&quot;, &quot;left&quot;: &quot;Uzbekistan&quot;, &quot;right&quot;: &quot;Colombia&quot;, &quot;leftDisplay&quot;: &quot;烏茲別克&quot;, &quot;rightDisplay&quot;: &quot;哥倫比亞&quot;, &quot;location&quot;: &quot;Estadio Azteca (Mexico City Stadium), Mexico City, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-19T00:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組A&quot;, &quot;left&quot;: &quot;Czechia&quot;, &quot;right&quot;: &quot;South Africa&quot;, &quot;leftDisplay&quot;: &quot;捷克&quot;, &quot;rightDisplay&quot;: &quot;南非&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-19T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組B&quot;, &quot;left&quot;: &quot;Switzerland&quot;, &quot;right&quot;: &quot;Bosnia &amp; Herzegovina&quot;, &quot;leftDisplay&quot;: &quot;瑞士&quot;, &quot;rightDisplay&quot;: &quot;波士尼亞與赫塞哥維納&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-19T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組B&quot;, &quot;left&quot;: &quot;Canada&quot;, &quot;right&quot;: &quot;Qatar&quot;, &quot;leftDisplay&quot;: &quot;加拿大&quot;, &quot;rightDisplay&quot;: &quot;卡達&quot;, &quot;location&quot;: &quot;BC Place, Vancouver, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-19T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組A&quot;, &quot;left&quot;: &quot;Mexico&quot;, &quot;right&quot;: &quot;South Korea&quot;, &quot;leftDisplay&quot;: &quot;墨西哥&quot;, &quot;rightDisplay&quot;: &quot;南韓&quot;, &quot;location&quot;: &quot;Estadio Akron (Guadalajara Stadium), Zapopan, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-20T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組D&quot;, &quot;left&quot;: &quot;USA&quot;, &quot;right&quot;: &quot;Australia&quot;, &quot;leftDisplay&quot;: &quot;美國&quot;, &quot;rightDisplay&quot;: &quot;澳洲&quot;, &quot;location&quot;: &quot;Lumen Field, Seattle, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-20T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組C&quot;, &quot;left&quot;: &quot;Scotland&quot;, &quot;right&quot;: &quot;Morocco&quot;, &quot;leftDisplay&quot;: &quot;蘇格蘭&quot;, &quot;rightDisplay&quot;: &quot;摩洛哥&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-20T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組C&quot;, &quot;left&quot;: &quot;Brazil&quot;, &quot;right&quot;: &quot;Haiti&quot;, &quot;leftDisplay&quot;: &quot;巴西&quot;, &quot;rightDisplay&quot;: &quot;海地&quot;, &quot;location&quot;: &quot;Lincoln Financial Field, Philadelphia, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-20T12:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組D&quot;, &quot;left&quot;: &quot;Turkey&quot;, &quot;right&quot;: &quot;Paraguay&quot;, &quot;leftDisplay&quot;: &quot;土耳其&quot;, &quot;rightDisplay&quot;: &quot;巴拉圭&quot;, &quot;location&quot;: &quot;Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-21T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組F&quot;, &quot;left&quot;: &quot;Netherlands&quot;, &quot;right&quot;: &quot;Sweden&quot;, &quot;leftDisplay&quot;: &quot;荷蘭&quot;, &quot;rightDisplay&quot;: &quot;瑞典&quot;, &quot;location&quot;: &quot;NRG Stadium, Houston, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-21T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組E&quot;, &quot;left&quot;: &quot;Germany&quot;, &quot;right&quot;: &quot;Ivory Coast&quot;, &quot;leftDisplay&quot;: &quot;德國&quot;, &quot;rightDisplay&quot;: &quot;象牙海岸&quot;, &quot;location&quot;: &quot;BMO Field, Toronto, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-21T08:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組E&quot;, &quot;left&quot;: &quot;Ecuador&quot;, &quot;right&quot;: &quot;Curacao&quot;, &quot;leftDisplay&quot;: &quot;厄瓜多&quot;, &quot;rightDisplay&quot;: &quot;庫拉索&quot;, &quot;location&quot;: &quot;Arrowhead Stadium, Kansas City, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-21T12:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組F&quot;, &quot;left&quot;: &quot;Tunisia&quot;, &quot;right&quot;: &quot;Japan&quot;, &quot;leftDisplay&quot;: &quot;突尼西亞&quot;, &quot;rightDisplay&quot;: &quot;日本&quot;, &quot;location&quot;: &quot;Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-22T00:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組H&quot;, &quot;left&quot;: &quot;Spain&quot;, &quot;right&quot;: &quot;Saudi Arabia&quot;, &quot;leftDisplay&quot;: &quot;西班牙&quot;, &quot;rightDisplay&quot;: &quot;沙烏地阿拉伯&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-22T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組G&quot;, &quot;left&quot;: &quot;Belgium&quot;, &quot;right&quot;: &quot;Iran&quot;, &quot;leftDisplay&quot;: &quot;比利時&quot;, &quot;rightDisplay&quot;: &quot;伊朗&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-22T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組H&quot;, &quot;left&quot;: &quot;Uruguay&quot;, &quot;right&quot;: &quot;Cape Verde&quot;, &quot;leftDisplay&quot;: &quot;烏拉圭&quot;, &quot;rightDisplay&quot;: &quot;維德角&quot;, &quot;location&quot;: &quot;Hard Rock Stadium (Miami Gardens), Miami, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-22T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組G&quot;, &quot;left&quot;: &quot;New Zealand&quot;, &quot;right&quot;: &quot;Egypt&quot;, &quot;leftDisplay&quot;: &quot;紐西蘭&quot;, &quot;rightDisplay&quot;: &quot;埃及&quot;, &quot;location&quot;: &quot;BC Place, Vancouver, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-23T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組J&quot;, &quot;left&quot;: &quot;Argentina&quot;, &quot;right&quot;: &quot;Austria&quot;, &quot;leftDisplay&quot;: &quot;阿根廷&quot;, &quot;rightDisplay&quot;: &quot;奧地利&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-23T05:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組I&quot;, &quot;left&quot;: &quot;France&quot;, &quot;right&quot;: &quot;Iraq&quot;, &quot;leftDisplay&quot;: &quot;法國&quot;, &quot;rightDisplay&quot;: &quot;伊拉克&quot;, &quot;location&quot;: &quot;Lincoln Financial Field, Philadelphia, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-23T08:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組I&quot;, &quot;left&quot;: &quot;Norway&quot;, &quot;right&quot;: &quot;Senegal&quot;, &quot;leftDisplay&quot;: &quot;挪威&quot;, &quot;rightDisplay&quot;: &quot;塞內加爾&quot;, &quot;location&quot;: &quot;BMO Field, Toronto, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-23T11:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組J&quot;, &quot;left&quot;: &quot;Jordan&quot;, &quot;right&quot;: &quot;Algeria&quot;, &quot;leftDisplay&quot;: &quot;約旦&quot;, &quot;rightDisplay&quot;: &quot;阿爾及利亞&quot;, &quot;location&quot;: &quot;Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-24T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組K&quot;, &quot;left&quot;: &quot;Portugal&quot;, &quot;right&quot;: &quot;Uzbekistan&quot;, &quot;leftDisplay&quot;: &quot;葡萄牙&quot;, &quot;rightDisplay&quot;: &quot;烏茲別克&quot;, &quot;location&quot;: &quot;NRG Stadium, Houston, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-24T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組L&quot;, &quot;left&quot;: &quot;England&quot;, &quot;right&quot;: &quot;Ghana&quot;, &quot;leftDisplay&quot;: &quot;英格蘭&quot;, &quot;rightDisplay&quot;: &quot;迦納&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-24T07:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組L&quot;, &quot;left&quot;: &quot;Panama&quot;, &quot;right&quot;: &quot;Croatia&quot;, &quot;leftDisplay&quot;: &quot;巴拿馬&quot;, &quot;rightDisplay&quot;: &quot;克羅埃西亞&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-24T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組K&quot;, &quot;left&quot;: &quot;Colombia&quot;, &quot;right&quot;: &quot;DR Congo&quot;, &quot;leftDisplay&quot;: &quot;哥倫比亞&quot;, &quot;rightDisplay&quot;: &quot;剛果民主共和國&quot;, &quot;location&quot;: &quot;Estadio Akron (Guadalajara Stadium), Zapopan, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-25T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組B&quot;, &quot;left&quot;: &quot;Bosnia &amp; Herzegovina&quot;, &quot;right&quot;: &quot;Qatar&quot;, &quot;leftDisplay&quot;: &quot;波士尼亞與赫塞哥維納&quot;, &quot;rightDisplay&quot;: &quot;卡達&quot;, &quot;location&quot;: &quot;Lumen Field, Seattle, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-25T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組B&quot;, &quot;left&quot;: &quot;Switzerland&quot;, &quot;right&quot;: &quot;Canada&quot;, &quot;leftDisplay&quot;: &quot;瑞士&quot;, &quot;rightDisplay&quot;: &quot;加拿大&quot;, &quot;location&quot;: &quot;BC Place, Vancouver, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-25T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組C&quot;, &quot;left&quot;: &quot;Scotland&quot;, &quot;right&quot;: &quot;Brazil&quot;, &quot;leftDisplay&quot;: &quot;蘇格蘭&quot;, &quot;rightDisplay&quot;: &quot;巴西&quot;, &quot;location&quot;: &quot;Hard Rock Stadium (Miami Gardens), Miami, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-25T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組C&quot;, &quot;left&quot;: &quot;Morocco&quot;, &quot;right&quot;: &quot;Haiti&quot;, &quot;leftDisplay&quot;: &quot;摩洛哥&quot;, &quot;rightDisplay&quot;: &quot;海地&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-25T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組A&quot;, &quot;left&quot;: &quot;South Africa&quot;, &quot;right&quot;: &quot;South Korea&quot;, &quot;leftDisplay&quot;: &quot;南非&quot;, &quot;rightDisplay&quot;: &quot;南韓&quot;, &quot;location&quot;: &quot;Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-25T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組A&quot;, &quot;left&quot;: &quot;Czechia&quot;, &quot;right&quot;: &quot;Mexico&quot;, &quot;leftDisplay&quot;: &quot;捷克&quot;, &quot;rightDisplay&quot;: &quot;墨西哥&quot;, &quot;location&quot;: &quot;Estadio Azteca (Mexico City Stadium), Mexico City, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-26T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組E&quot;, &quot;left&quot;: &quot;Curacao&quot;, &quot;right&quot;: &quot;Ivory Coast&quot;, &quot;leftDisplay&quot;: &quot;庫拉索&quot;, &quot;rightDisplay&quot;: &quot;象牙海岸&quot;, &quot;location&quot;: &quot;Lincoln Financial Field, Philadelphia, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-26T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組E&quot;, &quot;left&quot;: &quot;Ecuador&quot;, &quot;right&quot;: &quot;Germany&quot;, &quot;leftDisplay&quot;: &quot;厄瓜多&quot;, &quot;rightDisplay&quot;: &quot;德國&quot;, &quot;location&quot;: &quot;MetLife Stadium (East Rutherford), New Jersey, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-26T07:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組F&quot;, &quot;left&quot;: &quot;Japan&quot;, &quot;right&quot;: &quot;Sweden&quot;, &quot;leftDisplay&quot;: &quot;日本&quot;, &quot;rightDisplay&quot;: &quot;瑞典&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-26T07:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組F&quot;, &quot;left&quot;: &quot;Tunisia&quot;, &quot;right&quot;: &quot;Netherlands&quot;, &quot;leftDisplay&quot;: &quot;突尼西亞&quot;, &quot;rightDisplay&quot;: &quot;荷蘭&quot;, &quot;location&quot;: &quot;Arrowhead Stadium, Kansas City, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-26T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組D&quot;, &quot;left&quot;: &quot;Paraguay&quot;, &quot;right&quot;: &quot;Australia&quot;, &quot;leftDisplay&quot;: &quot;巴拉圭&quot;, &quot;rightDisplay&quot;: &quot;澳洲&quot;, &quot;location&quot;: &quot;Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-26T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組D&quot;, &quot;left&quot;: &quot;Turkey&quot;, &quot;right&quot;: &quot;USA&quot;, &quot;leftDisplay&quot;: &quot;土耳其&quot;, &quot;rightDisplay&quot;: &quot;美國&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-27T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組I&quot;, &quot;left&quot;: &quot;Senegal&quot;, &quot;right&quot;: &quot;Iraq&quot;, &quot;leftDisplay&quot;: &quot;塞內加爾&quot;, &quot;rightDisplay&quot;: &quot;伊拉克&quot;, &quot;location&quot;: &quot;BMO Field, Toronto, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-27T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組I&quot;, &quot;left&quot;: &quot;Norway&quot;, &quot;right&quot;: &quot;France&quot;, &quot;leftDisplay&quot;: &quot;挪威&quot;, &quot;rightDisplay&quot;: &quot;法國&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-27T08:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組H&quot;, &quot;left&quot;: &quot;Cape Verde&quot;, &quot;right&quot;: &quot;Saudi Arabia&quot;, &quot;leftDisplay&quot;: &quot;維德角&quot;, &quot;rightDisplay&quot;: &quot;沙烏地阿拉伯&quot;, &quot;location&quot;: &quot;NRG Stadium, Houston, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-27T08:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組H&quot;, &quot;left&quot;: &quot;Uruguay&quot;, &quot;right&quot;: &quot;Spain&quot;, &quot;leftDisplay&quot;: &quot;烏拉圭&quot;, &quot;rightDisplay&quot;: &quot;西班牙&quot;, &quot;location&quot;: &quot;Estadio Akron (Guadalajara Stadium), Zapopan, Mexico&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-27T11:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組G&quot;, &quot;left&quot;: &quot;New Zealand&quot;, &quot;right&quot;: &quot;Belgium&quot;, &quot;leftDisplay&quot;: &quot;紐西蘭&quot;, &quot;rightDisplay&quot;: &quot;比利時&quot;, &quot;location&quot;: &quot;BC Place, Vancouver, Canada&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-27T11:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組G&quot;, &quot;left&quot;: &quot;Egypt&quot;, &quot;right&quot;: &quot;Iran&quot;, &quot;leftDisplay&quot;: &quot;埃及&quot;, &quot;rightDisplay&quot;: &quot;伊朗&quot;, &quot;location&quot;: &quot;Lumen Field, Seattle, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-28T05:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組L&quot;, &quot;left&quot;: &quot;Croatia&quot;, &quot;right&quot;: &quot;Ghana&quot;, &quot;leftDisplay&quot;: &quot;克羅埃西亞&quot;, &quot;rightDisplay&quot;: &quot;迦納&quot;, &quot;location&quot;: &quot;Lincoln Financial Field, Philadelphia, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-28T05:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組L&quot;, &quot;left&quot;: &quot;Panama&quot;, &quot;right&quot;: &quot;England&quot;, &quot;leftDisplay&quot;: &quot;巴拿馬&quot;, &quot;rightDisplay&quot;: &quot;英格蘭&quot;, &quot;location&quot;: &quot;MetLife Stadium (East Rutherford), New Jersey, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-28T07:30:00+08:00&quot;, &quot;stage&quot;: &quot;小組K&quot;, &quot;left&quot;: &quot;Colombia&quot;, &quot;right&quot;: &quot;Portugal&quot;, &quot;leftDisplay&quot;: &quot;哥倫比亞&quot;, &quot;rightDisplay&quot;: &quot;葡萄牙&quot;, &quot;location&quot;: &quot;Hard Rock Stadium (Miami Gardens), Miami, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-28T07:30:00+08:00&quot;, &quot;stage&quot;: &quot;小組K&quot;, &quot;left&quot;: &quot;DR Congo&quot;, &quot;right&quot;: &quot;Uzbekistan&quot;, &quot;leftDisplay&quot;: &quot;剛果民主共和國&quot;, &quot;rightDisplay&quot;: &quot;烏茲別克&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-28T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組J&quot;, &quot;left&quot;: &quot;Jordan&quot;, &quot;right&quot;: &quot;Argentina&quot;, &quot;leftDisplay&quot;: &quot;約旦&quot;, &quot;rightDisplay&quot;: &quot;阿根廷&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-28T10:00:00+08:00&quot;, &quot;stage&quot;: &quot;小組J&quot;, &quot;left&quot;: &quot;Algeria&quot;, &quot;right&quot;: &quot;Austria&quot;, &quot;leftDisplay&quot;: &quot;阿爾及利亞&quot;, &quot;rightDisplay&quot;: &quot;奧地利&quot;, &quot;location&quot;: &quot;Arrowhead Stadium, Kansas City, USA&quot;, &quot;matchNo&quot;: &quot;&quot;}, {&quot;start&quot;: &quot;2026-06-29T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;South Africa&quot;, &quot;right&quot;: &quot;Canada&quot;, &quot;leftDisplay&quot;: &quot;南非&quot;, &quot;rightDisplay&quot;: &quot;加拿大&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;M73&quot;}, {&quot;start&quot;: &quot;2026-06-30T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Brazil&quot;, &quot;right&quot;: &quot;Japan&quot;, &quot;leftDisplay&quot;: &quot;巴西&quot;, &quot;rightDisplay&quot;: &quot;日本&quot;, &quot;location&quot;: &quot;NRG Stadium, Houston, USA&quot;, &quot;matchNo&quot;: &quot;M76&quot;}, {&quot;start&quot;: &quot;2026-06-30T04:30:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Germany&quot;, &quot;right&quot;: &quot;Paraguay&quot;, &quot;leftDisplay&quot;: &quot;德國&quot;, &quot;rightDisplay&quot;: &quot;巴拉圭&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;M74&quot;}, {&quot;start&quot;: &quot;2026-06-30T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Netherlands&quot;, &quot;right&quot;: &quot;Morocco&quot;, &quot;leftDisplay&quot;: &quot;荷蘭&quot;, &quot;rightDisplay&quot;: &quot;摩洛哥&quot;, &quot;location&quot;: &quot;Estadio BBVA (Monterrey Stadium), Guadalupe, Mexico&quot;, &quot;matchNo&quot;: &quot;M75&quot;}, {&quot;start&quot;: &quot;2026-07-01T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Ivory Coast&quot;, &quot;right&quot;: &quot;Norway&quot;, &quot;leftDisplay&quot;: &quot;象牙海岸&quot;, &quot;rightDisplay&quot;: &quot;挪威&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;M78&quot;}, {&quot;start&quot;: &quot;2026-07-01T05:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;France&quot;, &quot;right&quot;: &quot;Sweden&quot;, &quot;leftDisplay&quot;: &quot;法國&quot;, &quot;rightDisplay&quot;: &quot;瑞典&quot;, &quot;location&quot;: &quot;MetLife Stadium (East Rutherford), New Jersey, USA&quot;, &quot;matchNo&quot;: &quot;M77&quot;}, {&quot;start&quot;: &quot;2026-07-01T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Mexico&quot;, &quot;right&quot;: &quot;Ecuador&quot;, &quot;leftDisplay&quot;: &quot;墨西哥&quot;, &quot;rightDisplay&quot;: &quot;厄瓜多&quot;, &quot;location&quot;: &quot;Estadio Azteca (Mexico City Stadium), Mexico City, Mexico&quot;, &quot;matchNo&quot;: &quot;M79&quot;}, {&quot;start&quot;: &quot;2026-07-02T00:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;England&quot;, &quot;right&quot;: &quot;DR Congo&quot;, &quot;leftDisplay&quot;: &quot;英格蘭&quot;, &quot;rightDisplay&quot;: &quot;剛果民主共和國&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;M80&quot;}, {&quot;start&quot;: &quot;2026-07-02T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Belgium&quot;, &quot;right&quot;: &quot;Senegal&quot;, &quot;leftDisplay&quot;: &quot;比利時&quot;, &quot;rightDisplay&quot;: &quot;塞內加爾&quot;, &quot;location&quot;: &quot;Lumen Field, Seattle, USA&quot;, &quot;matchNo&quot;: &quot;M82&quot;}, {&quot;start&quot;: &quot;2026-07-02T08:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;USA&quot;, &quot;right&quot;: &quot;Bosnia &amp; Herzegovina&quot;, &quot;leftDisplay&quot;: &quot;美國&quot;, &quot;rightDisplay&quot;: &quot;波士尼亞與赫塞哥維納&quot;, &quot;location&quot;: &quot;Levi&#x27;s Stadium (Santa Clara), Santa Clara, USA&quot;, &quot;matchNo&quot;: &quot;M81&quot;}, {&quot;start&quot;: &quot;2026-07-03T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Spain&quot;, &quot;right&quot;: &quot;TBD&quot;, &quot;leftDisplay&quot;: &quot;西班牙&quot;, &quot;rightDisplay&quot;: &quot;待定&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;M84&quot;}, {&quot;start&quot;: &quot;2026-07-03T07:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Portugal&quot;, &quot;right&quot;: &quot;Croatia&quot;, &quot;leftDisplay&quot;: &quot;葡萄牙&quot;, &quot;rightDisplay&quot;: &quot;克羅埃西亞&quot;, &quot;location&quot;: &quot;BMO Field, Toronto, Canada&quot;, &quot;matchNo&quot;: &quot;M83&quot;}, {&quot;start&quot;: &quot;2026-07-03T11:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Switzerland&quot;, &quot;right&quot;: &quot;TBD&quot;, &quot;leftDisplay&quot;: &quot;瑞士&quot;, &quot;rightDisplay&quot;: &quot;待定&quot;, &quot;location&quot;: &quot;BC Place, Vancouver, Canada&quot;, &quot;matchNo&quot;: &quot;M85&quot;}, {&quot;start&quot;: &quot;2026-07-04T02:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Australia&quot;, &quot;right&quot;: &quot;Egypt&quot;, &quot;leftDisplay&quot;: &quot;澳洲&quot;, &quot;rightDisplay&quot;: &quot;埃及&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;M88&quot;}, {&quot;start&quot;: &quot;2026-07-04T06:00:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Argentina&quot;, &quot;right&quot;: &quot;Cape Verde&quot;, &quot;leftDisplay&quot;: &quot;阿根廷&quot;, &quot;rightDisplay&quot;: &quot;維德角&quot;, &quot;location&quot;: &quot;Hard Rock Stadium (Miami Gardens), Miami, USA&quot;, &quot;matchNo&quot;: &quot;M86&quot;}, {&quot;start&quot;: &quot;2026-07-04T09:30:00+08:00&quot;, &quot;stage&quot;: &quot;32 強&quot;, &quot;left&quot;: &quot;Colombia&quot;, &quot;right&quot;: &quot;Ghana&quot;, &quot;leftDisplay&quot;: &quot;哥倫比亞&quot;, &quot;rightDisplay&quot;: &quot;迦納&quot;, &quot;location&quot;: &quot;Arrowhead Stadium, Kansas City, USA&quot;, &quot;matchNo&quot;: &quot;M87&quot;}, {&quot;start&quot;: &quot;2026-07-05T01:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 73 winners&quot;, &quot;right&quot;: &quot;Match 75 winners&quot;, &quot;leftDisplay&quot;: &quot;第 73 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 75 場勝方&quot;, &quot;location&quot;: &quot;NRG Stadium, Houston, USA&quot;, &quot;matchNo&quot;: &quot;M90&quot;}, {&quot;start&quot;: &quot;2026-07-05T05:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 74 winners&quot;, &quot;right&quot;: &quot;Match 77 winners&quot;, &quot;leftDisplay&quot;: &quot;第 74 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 77 場勝方&quot;, &quot;location&quot;: &quot;Lincoln Financial Field, Philadelphia, USA&quot;, &quot;matchNo&quot;: &quot;M89&quot;}, {&quot;start&quot;: &quot;2026-07-06T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 76 winners&quot;, &quot;right&quot;: &quot;Match 78 winners&quot;, &quot;leftDisplay&quot;: &quot;第 76 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 78 場勝方&quot;, &quot;location&quot;: &quot;MetLife Stadium (East Rutherford), New Jersey, USA&quot;, &quot;matchNo&quot;: &quot;M91&quot;}, {&quot;start&quot;: &quot;2026-07-06T08:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 79 winners&quot;, &quot;right&quot;: &quot;Match 80 winners&quot;, &quot;leftDisplay&quot;: &quot;第 79 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 80 場勝方&quot;, &quot;location&quot;: &quot;Estadio Azteca (Mexico City Stadium), Mexico City, Mexico&quot;, &quot;matchNo&quot;: &quot;M92&quot;}, {&quot;start&quot;: &quot;2026-07-07T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 83 winners&quot;, &quot;right&quot;: &quot;Match 84 winners&quot;, &quot;leftDisplay&quot;: &quot;第 83 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 84 場勝方&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;M93&quot;}, {&quot;start&quot;: &quot;2026-07-07T08:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 81 winners&quot;, &quot;right&quot;: &quot;Match 82 winners&quot;, &quot;leftDisplay&quot;: &quot;第 81 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 82 場勝方&quot;, &quot;location&quot;: &quot;Lumen Field, Seattle, USA&quot;, &quot;matchNo&quot;: &quot;M94&quot;}, {&quot;start&quot;: &quot;2026-07-08T00:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 86 winners&quot;, &quot;right&quot;: &quot;Match 88 winners&quot;, &quot;leftDisplay&quot;: &quot;第 86 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 88 場勝方&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;M95&quot;}, {&quot;start&quot;: &quot;2026-07-08T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;16 強&quot;, &quot;left&quot;: &quot;Match 85 winners&quot;, &quot;right&quot;: &quot;Match 87 winners&quot;, &quot;leftDisplay&quot;: &quot;第 85 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 87 場勝方&quot;, &quot;location&quot;: &quot;BC Place, Vancouver, Canada&quot;, &quot;matchNo&quot;: &quot;M96&quot;}, {&quot;start&quot;: &quot;2026-07-10T04:00:00+08:00&quot;, &quot;stage&quot;: &quot;八強&quot;, &quot;left&quot;: &quot;Match 89 winners&quot;, &quot;right&quot;: &quot;Match 90 winners&quot;, &quot;leftDisplay&quot;: &quot;第 89 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 90 場勝方&quot;, &quot;location&quot;: &quot;Gillette Stadium (Foxborough), Foxborough, USA&quot;, &quot;matchNo&quot;: &quot;M97&quot;}, {&quot;start&quot;: &quot;2026-07-11T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;八強&quot;, &quot;left&quot;: &quot;Match 93 winners&quot;, &quot;right&quot;: &quot;Match 94 winners&quot;, &quot;leftDisplay&quot;: &quot;第 93 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 94 場勝方&quot;, &quot;location&quot;: &quot;SoFi Stadium (Inglewood), Los Angeles, USA&quot;, &quot;matchNo&quot;: &quot;M98&quot;}, {&quot;start&quot;: &quot;2026-07-12T05:00:00+08:00&quot;, &quot;stage&quot;: &quot;八強&quot;, &quot;left&quot;: &quot;Match 91 winners&quot;, &quot;right&quot;: &quot;Match 92 winners&quot;, &quot;leftDisplay&quot;: &quot;第 91 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 92 場勝方&quot;, &quot;location&quot;: &quot;Hard Rock Stadium (Miami Gardens), Miami, USA&quot;, &quot;matchNo&quot;: &quot;M99&quot;}, {&quot;start&quot;: &quot;2026-07-12T09:00:00+08:00&quot;, &quot;stage&quot;: &quot;八強&quot;, &quot;left&quot;: &quot;Match 95 winners&quot;, &quot;right&quot;: &quot;Match 96 winners&quot;, &quot;leftDisplay&quot;: &quot;第 95 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 96 場勝方&quot;, &quot;location&quot;: &quot;Arrowhead Stadium, Kansas City, USA&quot;, &quot;matchNo&quot;: &quot;M100&quot;}, {&quot;start&quot;: &quot;2026-07-15T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;四強&quot;, &quot;left&quot;: &quot;Match 97 winners&quot;, &quot;right&quot;: &quot;Match 98 winners&quot;, &quot;leftDisplay&quot;: &quot;第 97 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 98 場勝方&quot;, &quot;location&quot;: &quot;AT&amp;T Stadium (Arlington), Arlington, USA&quot;, &quot;matchNo&quot;: &quot;M101&quot;}, {&quot;start&quot;: &quot;2026-07-16T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;四強&quot;, &quot;left&quot;: &quot;Match 99 winners&quot;, &quot;right&quot;: &quot;Match 100 winners&quot;, &quot;leftDisplay&quot;: &quot;第 99 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 100 場勝方&quot;, &quot;location&quot;: &quot;Mercedes-Benz Stadium, Atlanta, USA&quot;, &quot;matchNo&quot;: &quot;M102&quot;}, {&quot;start&quot;: &quot;2026-07-19T05:00:00+08:00&quot;, &quot;stage&quot;: &quot;季軍戰&quot;, &quot;left&quot;: &quot;Match 101 losers&quot;, &quot;right&quot;: &quot;Match 102 losers&quot;, &quot;leftDisplay&quot;: &quot;第 101 場敗方&quot;, &quot;rightDisplay&quot;: &quot;第 102 場敗方&quot;, &quot;location&quot;: &quot;Hard Rock Stadium (Miami Gardens), Miami, USA&quot;, &quot;matchNo&quot;: &quot;M103&quot;}, {&quot;start&quot;: &quot;2026-07-20T03:00:00+08:00&quot;, &quot;stage&quot;: &quot;決賽&quot;, &quot;left&quot;: &quot;Match 101 winners&quot;, &quot;right&quot;: &quot;Match 102 winners&quot;, &quot;leftDisplay&quot;: &quot;第 101 場勝方&quot;, &quot;rightDisplay&quot;: &quot;第 102 場勝方&quot;, &quot;location&quot;: &quot;MetLife Stadium (East Rutherford), New Jersey, USA&quot;, &quot;matchNo&quot;: &quot;M104&quot;}]</script>
   <script>
-    const icsUrl = new URL("google-calendar.ics", window.location.href).href;
-    document.querySelector("#icsUrl").textContent = icsUrl;
-    document.querySelector("#googleBtn").href =
-      "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(icsUrl);
-    document.querySelector("#copyBtn").addEventListener("click", async () => {
-      await navigator.clipboard.writeText(icsUrl);
-      document.querySelector("#copyBtn").textContent = "已複製";
-      setTimeout(() => document.querySelector("#copyBtn").textContent = "複製 iCal 網址", 1400);
-    });
+    const search = document.querySelector("#search");
+    const stage = document.querySelector("#stage");
+    const date = document.querySelector("#date");
+    const cards = [...document.querySelectorAll(".match-card")];
+    const dates = [...document.querySelectorAll(".date-row")];
+    const empty = document.querySelector("#empty");
+
+    function normalize(value) {
+      return value.toLowerCase().trim();
+    }
+
+    function applyFilters() {
+      const q = normalize(search.value);
+      const s = stage.value;
+      const d = date.value;
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const haystack = normalize(card.textContent);
+        const show = (!q || haystack.includes(q)) &&
+          (!s || card.dataset.stage === s) &&
+          (!d || card.dataset.date === d);
+        card.hidden = !show;
+        if (show) visibleCount += 1;
+      });
+      dates.forEach(row => {
+        let next = row.nextElementSibling;
+        let hasVisible = false;
+        while (next && !next.classList.contains("date-row")) {
+          if (!next.hidden) hasVisible = true;
+          next = next.nextElementSibling;
+        }
+        row.hidden = !hasVisible;
+      });
+      empty.style.display = visibleCount ? "none" : "block";
+    }
+
+    [search, stage, date].forEach(el => el.addEventListener("input", applyFilters));
   </script>
 </body>
 </html>
